@@ -20,7 +20,7 @@ gulp.task('compass', function(){
 });
 
 
-gulp.task('inline', ['sass'], function () {
+gulp.task('inline', ['compass'], function () {
 	var options = {
 	    compress: false
 	};
