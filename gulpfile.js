@@ -31,6 +31,7 @@ gulp.task('inline', ['compass'], function () {
 
 gulp.task('watch', function(){
 	gulp.watch('./_sass/*', ['inline']);
+	gulp.watch('./js/*.js', ['inline']);
 	// gulp.watch('./src/css/*').on('change', livereload.changed);
 })
 
