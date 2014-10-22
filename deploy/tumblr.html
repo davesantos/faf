@@ -16,11 +16,55 @@
 		 -->
  	{/block:Hidden}
 	<link rel="stylesheet" type="text/css" media="all" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
-	<style>img, video, object, embed {
-  max-width: 100%;
-  height: auto !important; }
+	<style>html {
+  font-size: 112.5%;
+  line-height: 1.55556em;
+}
 
-/*# sourceMappingURL=all.css.map */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0 20px;
+  max-width: 1060px;
+  margin-left: auto;
+  margin-right: auto;
+}
+body:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+h1, h2, h3, h4 {
+  font-size: inherit;
+  font-size: 1.55556em;
+  line-height: 2em;
+}
+
+figure {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img, video, object, embed {
+  max-width: 100%;
+  height: auto !important;
+}
+
+ul.nav {
+  list-style: none;
+  padding: 0;
+}
+ul.nav li {
+  display: inline-block;
+}
 </style>
 	<style type="text/css">
 		/*Tumblr Global Appearance */
@@ -37,7 +81,7 @@
 		{block:ShowDescription}{block:Description}<div class="description">{Description}</div>{/block:Description}{/block:ShowDescription}
 		{block:ShowHeaderImage}<img src="{HeaderImage}">{/block:ShowHeaderImage}
 		{block:ShowAvatar}<img src="{PortraitURL-128}">{/block:ShowAvatar}
-		<ul class="nav">
+		<ul class="nav" role="navigation">
 			{block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
 			<li><a href="/archive">{lang:Archive}</a></li>
 			{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
@@ -183,8 +227,5 @@
 		</div>
 		{/block:Pagination}
 	</section><!--close content-->
-	<footer class="footer">
-		<small>{block:ShowTitle}{Title} {/block:ShowTitle}&copy; {CopyrightYears}</small>
-	</footer>
 </body>
 </html>

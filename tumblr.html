@@ -32,7 +32,7 @@
 		{block:ShowDescription}{block:Description}<div class="description">{Description}</div>{/block:Description}{/block:ShowDescription}
 		{block:ShowHeaderImage}<img src="{HeaderImage}">{/block:ShowHeaderImage}
 		{block:ShowAvatar}<img src="{PortraitURL-128}">{/block:ShowAvatar}
-		<ul class="nav">
+		<ul class="nav" role="navigation">
 			{block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
 			<li><a href="/archive">{lang:Archive}</a></li>
 			{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
@@ -178,8 +178,5 @@
 		</div>
 		{/block:Pagination}
 	</section><!--close content-->
-	<footer class="footer">
-		<small>{block:ShowTitle}{Title} {/block:ShowTitle}&copy; {CopyrightYears}</small>
-	</footer>
 </body>
 </html>

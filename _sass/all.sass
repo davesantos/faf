@@ -1,5 +1,28 @@
+@import "base"
+
 body
+  padding: 0 $gutter-width
+  +container
+
+h1,h2,h3,h4
+  font-size: inherit
+  +adjust-font-size-to(28px)
+
+figure
+  margin: 0
+
+a
+  text-decoration: none
 
 img, video, object, embed
-	max-width: 100%
-	height: auto !important
+  max-width: 100%
+  height: auto !important
+
+// Structure
+
+
+ul.nav
+  list-style: none
+  padding: 0
+  li
+    display: inline-block

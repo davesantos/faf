@@ -34,4 +34,4 @@ gulp.task('watch', function(){
 	// gulp.watch('./src/css/*').on('change', livereload.changed);
 })
 
-gulp.task('default', ['watch'])
+gulp.task('default', ['inline', 'watch'])
