@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
- 	sass = require('gulp-ruby-sass'),
+ 	compass = require('gulp-compass'),
  	inlinesource = require('gulp-inline-source');
 
 function errorHandler(error) {
@@ -8,12 +8,17 @@ function errorHandler(error) {
 }
 
 
-gulp.task('sass', function(){
-	return gulp.src('_sass/*.sass')
-	    .pipe(sass({sourcemapPath: '../_sass'}))
-	    .on('error', errorHandler)
-	    .pipe(gulp.dest('css'));
+gulp.task('compass', function(){
+	return gulp.src('./_sass/*.{sass,scss}')
+		.pipe(compass({
+			config_file: './config.rb',
+			css: './css',
+			sass: '_sass', //Must not have .
+			require: ['susy'] }))
+		.on('error', errorHandler)
+		.pipe(gulp.dest('./css'))
 });
+
 
 gulp.task('inline', ['sass'], function () {
 	var options = {
