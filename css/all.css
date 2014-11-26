@@ -10,8 +10,8 @@ html {
 }
 
 body {
-  padding: 0 1.88679%;
-  max-width: 1060px;
+  padding: 0 1.6129%;
+  max-width: 1240px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -38,6 +38,7 @@ a {
 img, video, object, embed {
   max-width: 100%;
   height: auto !important;
+  display: block;
 }
 
 ul.nav {
@@ -46,4 +47,8 @@ ul.nav {
 }
 ul.nav li {
   display: inline-block;
+}
+
+.pagination {
+  padding: 1.55556em 0 3.11111em;
 }

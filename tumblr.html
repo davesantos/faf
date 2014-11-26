@@ -26,6 +26,7 @@
 	</style>
 </head>
 <body>
+
 		<header class="header">
 			{block:ShowTitle}<h1 id="logo"><a href="/">{Title}</a></h1>{/block:ShowTitle}
 			{block:ShowDescription}{block:Description}<div class="description">{Description}</div>{/block:Description}{/block:ShowDescription}
@@ -42,7 +43,7 @@
 			</form>
 		</header>
 
-		<section class="content scene_element scene_element--fadein">
+		<main class="content">
 			{block:SearchPage}
 			<div class="result">
 				<p>{lang:Found SearchResultCount results for SearchQuery 2}</p>
@@ -53,9 +54,9 @@
 
 			{block:Posts}
 			<article class="post {PostType} {TagsAsClasses}">
+
 				{block:Date}
-				{block:NewDayDate}<p>{DayOfWeek}, {Month} {DayOfMonth}, {Year}</p>{/block:NewDayDate}
-				{block:SameDayDate}<p>{DayOfWeek}, {Month} {DayOfMonth}, {Year}</p>{/block:SameDayDate}
+				<p>{block:IndexPage}<a href="{Permalink}" class="permalink">{/block:IndexPage}{Year}-{MonthNumber}-{DayOfMonth}{block:IndexPage}</a>{/block:IndexPage}</p>
 				{/block:Date}
 
 				{block:Text}
@@ -95,7 +96,7 @@
 				    srcset="{PhotoURL-HighRes} 1280w,
 				            {PhotoURL-500} 500w,
 				            {PhotoURL-400} 400w"
-				    sizes="(min-width: 500px) 50%, 100%"
+				    sizes="100vw"
 				    alt="{PhotoAlt}">
 					{LinkCloseTag}
 				    {block:Caption}<figcaption class="caption">{Caption}</figcaption>{/block:Caption}
@@ -109,7 +110,7 @@
 				    srcset="{PhotoURL-HighRes} 1280w,
 				            {PhotoURL-500} 500w,
 				            {PhotoURL-400} 400w"
-				    sizes="(min-width: 500px) 50%, 100%"
+				    sizes="100vw"
 				    alt="{PhotoAlt}">
 					{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
 				    {/block:Photos}
@@ -164,8 +165,6 @@
 				{/block:Answerer}
 				<div class="replies">{Replies}</div>
 				{/block:Answer}
-
-				{block:IndexPage}<p><a href="{Permalink}" class="permalink">{lang:Permalink}</a></p>{/block:IndexPage}
 			</article>
 			{/block:Posts}
 
@@ -188,8 +187,7 @@
 				{block:NextPage}<a class="next" href="{NextPage}">{lang:Next}</a>{/block:NextPage}
 			</div>
 			{/block:Pagination}
-		</section>
-
+		</main>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
 </html>
