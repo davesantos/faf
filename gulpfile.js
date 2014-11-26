@@ -26,7 +26,7 @@ gulp.task('compass', function(){
 		.pipe(gulp.dest('./css'))
 });
 
-gulp.task('inline', function () {
+gulp.task('inline', ['compass'], function () {
 	var options = {
 	    compress: false
 	};
