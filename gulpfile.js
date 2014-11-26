@@ -26,7 +26,7 @@ gulp.task('compass', function(){
 		.pipe(gulp.dest('./css'))
 });
 
-gulp.task('inline', ['compass'], function () {
+gulp.task('inline', function () {
 	var options = {
 	    compress: false
 	};
@@ -39,6 +39,10 @@ gulp.task('inline', ['compass'], function () {
       .pipe(gulp.dest(paths.dest));
       gutil.beep();
 });
+
+gulp.task('build', ['compass','inline'], function(){
+	gutil.log(gutil.colors.green('BUILD COMPLETE'));
+})
 
 gulp.task('watch', function(){
 	gulp.watch('./_sass/*', ['inline']);

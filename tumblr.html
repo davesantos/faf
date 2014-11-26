@@ -105,7 +105,12 @@
 				{block:Photoset}
 				<figure{block:Caption} class="with-caption"{/block:Caption}>
 					{block:Photos}
-					<img src="{PhotoURL-HighRes}" width="{PhotoWidth-HighRes}" height="{PhotoHeight-HighRes}" alt="{PhotoAlt}"/>
+					<img draggable="false" src="{PhotoURL-400}"
+				    srcset="{PhotoURL-HighRes} 1280w,
+				            {PhotoURL-500} 500w,
+				            {PhotoURL-400} 400w"
+				    sizes="(min-width: 500px) 50%, 100%"
+				    alt="{PhotoAlt}">
 					{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
 				    {/block:Photos}
 				    {block:Caption}<figcaption class="caption">{Caption}</figcaption>{/block:Caption}

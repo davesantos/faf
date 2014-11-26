@@ -1,8 +1,7 @@
 @import "base"
-@import "animate"
 
 body
-  padding: 0 $gutter-width
+  padding: 0 gutter()
   +container
 
 h1,h2,h3,h4
@@ -19,8 +18,9 @@ img, video, object, embed
   max-width: 100%
   height: auto !important
 
+//==================================
 // Structure
-
+//==================================
 
 ul.nav
   list-style: none
@@ -28,22 +28,3 @@ ul.nav
   li
     display: inline-block
 
-
-// animation
-
-.m-scene .scene_element
-  +animation-duration(0.25s)
-  +animation-timing-function(ease-in)
-  +animation-fill-mode(both)
-
-.m-scene .scene_element--fadein
-  +animation-name(fadeIn)
-
-.m-scene .scene_element--slideoutup
-  +animation-name(slideOutUp)
-
-.m-scene .scene_element--slideindown
-  +animation-name(slideInDown)
-
-.m-scene.is-exiting .scene_element
-  +animation-direction(alternate-reverse)
