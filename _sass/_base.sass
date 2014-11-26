@@ -1,18 +1,9 @@
-@import "compass/css3"
-@import "compass/typography"
-@import "susy"
-
-//Typography
-$base-font-size:18px
-$base-line-height:28px
-$rhythm-unit: em
-+establish-baseline
+@import compass/css3
+@import compass/typography
+@import susy
 
 //1322 Grid System
 $total-columns  : 12
 $column-width   : 70px
 $gutter-width   : 20px
 $susy: (columns: $total-columns,gutters: $gutter-width / $column-width, column-width: $column-width, global-box-sizing: border-box )
-
-*
-	+box-sizing(border-box)
