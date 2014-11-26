@@ -1,12 +1,19 @@
 var gulp = require('gulp'),
+ 	changed = require('gulp-changed'),
  	compass = require('gulp-compass'),
+ 	gutil = require('gulp-util'),
+ 	rename = require('gulp-rename'),
  	inlinesource = require('gulp-inline-source');
+
+var paths = {
+	dest: 'deploy'
+};
 
 function errorHandler(error) {
 	console.error(String(error));
 	this.emit('end');
+	gutil.beep();
 }
-
 
 gulp.task('compass', function(){
 	return gulp.src('./_sass/*.{sass,scss}')
@@ -19,20 +26,29 @@ gulp.task('compass', function(){
 		.pipe(gulp.dest('./css'))
 });
 
-
 gulp.task('inline', ['compass'], function () {
 	var options = {
 	    compress: false
 	};
-    return gulp.src('tumblr.html')
-        .pipe(inlinesource(options))
-        .pipe(gulp.dest('./deploy'));
+  return gulp.src('tumblr.html')
+      .pipe(inlinesource(options))
+      .pipe(rename({
+          suffix: "-build",
+          extname: ".html"
+      }))
+      .pipe(gulp.dest(paths.dest));
+      gutil.beep();
 });
+
+gulp.task('build', ['compass','inline'], function(){
+	gutil.log(gutil.colors.green('BUILD COMPLETE'));
+})
 
 gulp.task('watch', function(){
 	gulp.watch('./_sass/*', ['inline']);
 	gulp.watch('./js/*.js', ['inline']);
-	// gulp.watch('./src/css/*').on('change', livereload.changed);
+	gulp.watch('./tumblr.html', ['inline']);
+	// gulp.watch('./tumblr.html').on('change', livereload.changed);
 })
 
 gulp.task('default', ['inline', 'watch'])
