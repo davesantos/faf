@@ -44,13 +44,14 @@
 			</form>
 		</header>
 
-		<section class="content scene_element scene_element--fadein">
+		<main class="content scene_element scene_element--fadein">
 			{block:SearchPage}
 			<div class="result">
 				<p>{lang:Found SearchResultCount results for SearchQuery 2}</p>
 				{block:NoSearchResults}<p>{lang:No results for SearchQuery 2}</p>{/block:NoSearchResults}
 			</div>
 			{/block:SearchPage}
+
 			{block:TagPage}<div class="result"><p>{lang:TagResultCount posts tagged Tag 3}</p></div>{/block:TagPage}
 
 			{block:Posts}
@@ -178,7 +179,7 @@
 				{block:NextPage}<a class="next" href="{NextPage}">{lang:Next}</a>{/block:NextPage}
 			</div>
 			{/block:Pagination}
-		</section>
+		</main>
 	</div> <!-- close wrap -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://static.tumblr.com/cqczc5x/Fx7ndttze/jquery.smoothstate.js"></script>
