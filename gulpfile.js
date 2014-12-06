@@ -1,19 +1,26 @@
 var gulp = require('gulp'),
- 	changed = require('gulp-changed'),
- 	compass = require('gulp-compass'),
- 	gutil = require('gulp-util'),
- 	rename = require('gulp-rename'),
- 	inlinesource = require('gulp-inline-source');
+  changed = require('gulp-changed'),
+  compass = require('gulp-compass'),
+  del = require('del'),
+  gutil = require('gulp-util'),
+  inlinesource = require('gulp-inline-source'),
+  rename = require('gulp-rename');
 
 var paths = {
-	dest: 'deploy'
+	dest: 'build'
 };
+var theTime = new Date().getTime();
+
 
 function errorHandler(error) {
 	console.error(String(error));
 	this.emit('end');
 	gutil.beep();
 }
+
+gulp.task('clean', function(cb) {
+  del(['build'], cb);
+});
 
 gulp.task('compass', function(){
 	return gulp.src('./_sass/*.{sass,scss}')
@@ -26,29 +33,26 @@ gulp.task('compass', function(){
 		.pipe(gulp.dest('./css'))
 });
 
-gulp.task('inline', ['compass'], function () {
+gulp.task('build', ['compass'], function () {
 	var options = {
 	    compress: false
 	};
   return gulp.src('tumblr.html')
       .pipe(inlinesource(options))
       .pipe(rename({
-          suffix: "-build",
+          suffix: "-" + theTime,
           extname: ".html"
       }))
       .pipe(gulp.dest(paths.dest));
+      gutil.log(gutil.colors.green('BUILD COMPLETE'));
       gutil.beep();
 });
 
-gulp.task('build', ['compass','inline'], function(){
-	gutil.log(gutil.colors.green('BUILD COMPLETE'));
-})
-
 gulp.task('watch', function(){
-	gulp.watch('./_sass/*', ['inline']);
-	gulp.watch('./js/*.js', ['inline']);
-	gulp.watch('./tumblr.html', ['inline']);
+	gulp.watch('./_sass/*', ['build']);
+	gulp.watch('./js/*.js', ['build']);
+	gulp.watch('./tumblr.html', ['build']);
 	// gulp.watch('./tumblr.html').on('change', livereload.changed);
 })
 
-gulp.task('default', ['inline', 'watch'])
+gulp.task('default', ['build', 'watch'])
