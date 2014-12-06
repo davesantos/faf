@@ -1,4 +1,4 @@
-var theTime = new Date().getTime();
+var theTime = Math.round(new Date().getTime() / 1000);
 var gulp = require('gulp'),
   changed = require('gulp-changed'),
   compass = require('gulp-compass'),
@@ -50,7 +50,7 @@ gulp.task('build', ['compass'], function () {
 });
 
 gulp.task('watch', function(){
-	gulp.watch( path.sass + '/*', ['build']);
+	gulp.watch( paths.sass + '/*', ['build']);
 	gulp.watch('./js/*.js', ['build']);
 	gulp.watch('./tumblr.html', ['build']);
 	// gulp.watch('./tumblr.html').on('change', livereload.changed);
