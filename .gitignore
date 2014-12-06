@@ -3,5 +3,6 @@
 .sass-cache
 node_modules
 deploy
+build
 css
 bower_components
