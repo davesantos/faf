@@ -1,3 +1,4 @@
+var theTime = new Date().getTime();
 var gulp = require('gulp'),
   changed = require('gulp-changed'),
   compass = require('gulp-compass'),
@@ -7,12 +8,10 @@ var gulp = require('gulp'),
   rename = require('gulp-rename');
 
 var paths = {
-	dest: 'build'
-  sass: '_sass'
+  dest: 'build',
+  sass: '_sass',
   css: 'css'
 };
-var theTime = new Date().getTime();
-
 
 function errorHandler(error) {
 	console.error(String(error));
@@ -25,7 +24,7 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('compass', function(){
-	return gulp.src('./_sass/*.{sass,scss}')
+	return gulp.src(paths.sass + '/*.{sass,scss}')
 		.pipe(compass({
 			config_file: './config.rb',
 			css: paths.css,
@@ -51,7 +50,7 @@ gulp.task('build', ['compass'], function () {
 });
 
 gulp.task('watch', function(){
-	gulp.watch('./_sass/*', ['build']);
+	gulp.watch( path.sass + '/*', ['build']);
 	gulp.watch('./js/*.js', ['build']);
 	gulp.watch('./tumblr.html', ['build']);
 	// gulp.watch('./tumblr.html').on('change', livereload.changed);
