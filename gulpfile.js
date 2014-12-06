@@ -8,6 +8,8 @@ var gulp = require('gulp'),
 
 var paths = {
 	dest: 'build'
+  sass: '_sass'
+  css: 'css'
 };
 var theTime = new Date().getTime();
 
@@ -26,8 +28,8 @@ gulp.task('compass', function(){
 	return gulp.src('./_sass/*.{sass,scss}')
 		.pipe(compass({
 			config_file: './config.rb',
-			css: './css',
-			sass: '_sass', //Must not have .
+			css: paths.css,
+			sass: paths.sass, //Must not have .
 			require: ['susy'] }))
 		.on('error', errorHandler)
 		.pipe(gulp.dest('./css'))
