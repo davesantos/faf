@@ -41,6 +41,23 @@ img, video, object, embed {
   display: block;
 }
 
+img {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.nav ul {
+  padding: 0;
+  margin: 1.55556em 0;
+}
+.nav ul li {
+  display: inline-block;
+  margin-right: 1.6129%;
+}
+.nav ul li:last-child {
+  margin-right: none;
+}
+
 ul.nav {
   list-style: none;
   padding: 0;

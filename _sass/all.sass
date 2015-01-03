@@ -27,10 +27,22 @@ img, video, object, embed
   height: auto !important
   display: block
 
+img
+  opacity: 0
+  transition: opacity .3s ease-in
+
 //==================================
 // Structure
 //==================================
+.nav ul
+  padding: 0
+  margin: rhythm(1) 0
 
+  li
+    display: inline-block
+    margin-right: gutter()
+    &:last-child
+      margin-right: none
 ul.nav
   list-style: none
   padding: 0
