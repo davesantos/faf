@@ -98,6 +98,9 @@
 			<figure class="{block:HighRes}high-res{/block:HighRes}{block:Caption} with-caption{/block:Caption}" data-photo-width="{PhotoWidth-HighRes}">
 				{LinkOpenTag}
 				<img data-src="{PhotoURL-500}" alt="{PhotoAlt}">
+				<noscript>
+					<img src="{PhotoURL-500}" alt="{PhotoAlt}">
+				</noscript>
 				{LinkCloseTag}
 		    {block:Caption}<figcaption class="caption">{Caption}</figcaption>{/block:Caption}
 			</figure>
@@ -107,6 +110,9 @@
 			<figure{block:Caption} class="with-caption"{/block:Caption}>
 				{block:Photos}
 				<img draggable="false" data-src="{PhotoURL-500}" alt="{PhotoAlt}">
+				<noscript>
+					<img src="{PhotoURL-500}" alt="{PhotoAlt}">
+				</noscript>
 				{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
 		    {/block:Photos}
 			    {block:Caption}<figcaption class="caption">{Caption}</figcaption>{/block:Caption}
