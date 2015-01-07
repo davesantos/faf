@@ -10,8 +10,8 @@ html {
 }
 
 body {
-  padding: 0 20px;
-  max-width: 1060px;
+  padding: 0 1.6129%;
+  max-width: 1240px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -38,15 +38,23 @@ a {
 img, video, object, embed {
   max-width: 100%;
   height: auto !important;
+  display: block;
 }
 
-ul.nav {
-  list-style: none;
+img {
+  opacity: 0;
+  transition: opacity 250ms linear;
+}
+
+.nav ul {
   padding: 0;
+  margin: 1.55556em 0;
 }
-ul.nav li {
+.nav ul li {
   display: inline-block;
+  margin-right: 1.6129%;
 }
+<<<<<<< HEAD
 
 .pagination {
   padding: 1.55556em 0;
@@ -92,22 +100,20 @@ ul.nav li {
   -moz-animation-name: fadeIn;
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
+=======
+.nav ul li:last-child {
+  margin-right: none;
+>>>>>>> basic
 }
 
-.m-scene .scene_element--slideoutup {
-  -moz-animation-name: slideOutUp;
-  -webkit-animation-name: slideOutUp;
-  animation-name: slideOutUp;
+ul.nav {
+  list-style: none;
+  padding: 0;
+}
+ul.nav li {
+  display: inline-block;
 }
 
-.m-scene .scene_element--slideindown {
-  -moz-animation-name: slideInDown;
-  -webkit-animation-name: slideInDown;
-  animation-name: slideInDown;
-}
-
-.m-scene.is-exiting .scene_element {
-  -moz-animation-direction: alternate-reverse;
-  -webkit-animation-direction: alternate-reverse;
-  animation-direction: alternate-reverse;
+.pagination {
+  padding: 1.55556em 0 3.11111em;
 }

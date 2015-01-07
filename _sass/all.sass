@@ -1,7 +1,18 @@
 @import "base"
+<<<<<<< HEAD
+=======
+
+$base-font-size:18px
+$base-line-height:28px
+$rhythm-unit: em
++establish-baseline
+
+*
+  +box-sizing(border-box)
+>>>>>>> basic
 
 body
-  padding: 0 $gutter-width
+  padding: 0 gutter()
   +container
 
 h1,h2,h3,h4
@@ -17,10 +28,30 @@ a
 img, video, object, embed
   max-width: 100%
   height: auto !important
+<<<<<<< HEAD
 //=============================
 // Structure
 //=============================
+=======
+  display: block
 
+img
+  opacity: 0
+  transition: opacity 250ms linear
+
+//==================================
+// Structure
+//==================================
+.nav ul
+  padding: 0
+  margin: rhythm(1) 0
+>>>>>>> basic
+
+  li
+    display: inline-block
+    margin-right: gutter()
+    &:last-child
+      margin-right: none
 ul.nav
   list-style: none
   padding: 0
@@ -28,6 +59,7 @@ ul.nav
     display: inline-block
 
 .pagination
+<<<<<<< HEAD
   padding: rhythm(1) 0
 
 // animation
@@ -54,3 +86,7 @@ ul.nav
 
 .m-scene.is-exiting .scene_element
   +animation-direction(alternate-reverse)
+=======
+  padding: rhythm(1) 0 rhythm(2)
+
+>>>>>>> basic
