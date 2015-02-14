@@ -38,10 +38,11 @@ a {
 img, video, object, embed {
   max-width: 100%;
   height: auto !important;
-  display: block;
 }
 
 img {
+  display: block;
+  margin: auto 0;
   opacity: 0;
   transition: opacity 250ms linear;
 }
@@ -54,7 +55,17 @@ img {
   display: inline-block;
   margin-right: 1.6129%;
 }
-<<<<<<< HEAD
+.nav ul li:last-child {
+  margin-right: none;
+}
+
+ul.nav {
+  list-style: none;
+  padding: 0;
+}
+ul.nav li {
+  display: inline-block;
+}
 
 .pagination {
   padding: 1.55556em 0;
@@ -100,20 +111,23 @@ img {
   -moz-animation-name: fadeIn;
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
-=======
-.nav ul li:last-child {
-  margin-right: none;
->>>>>>> basic
 }
 
-ul.nav {
-  list-style: none;
-  padding: 0;
-}
-ul.nav li {
-  display: inline-block;
+.m-scene .scene_element--slideoutup {
+  -moz-animation-name: slideOutUp;
+  -webkit-animation-name: slideOutUp;
+  animation-name: slideOutUp;
 }
 
-.pagination {
+.m-scene .scene_element--slideindown {
+  -moz-animation-name: slideInDown;
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+}
+
+.m-scene.is-exiting .scene_element {
+  -moz-animation-direction: alternate-reverse;
+  -webkit-animation-direction: alternate-reverse;
+  animation-direction: alternate-reverse;
   padding: 1.55556em 0 3.11111em;
 }
