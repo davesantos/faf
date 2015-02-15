@@ -67,13 +67,16 @@ ul.nav
   li
     display: inline-block
 
+.icon
+  width: span(1)
 //================================
 // Posts
 //================================
 
 .post
   margin: rhythm(2) auto
-
+  h2
+    text-align: center
 .caption
   +span(8)
   margin: 0 auto rhythm(2)
@@ -87,6 +90,15 @@ ul.meta
 .footer
   +full
   padding: rhythm(2) 0
+//================================
+// Custom
+//================================
+
+#shape-twitter
+  &:hover
+    fill: #2ba9e1
+
+
 
 // animation
 
