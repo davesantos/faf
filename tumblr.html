@@ -60,12 +60,12 @@
 		{block:Posts}
 		<article class="post {PostType} {TagsAsClasses}">
 			{block:Text}
-			    {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
-			    {block:Body}
-			    <div class="body-text">
-			        {Body}
-			    </div>
-			    {/block:Body}
+		    {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+		    {block:Body}
+		    <div class="entry-text">
+	        {Body}
+		    </div>
+		    {/block:Body}
 			{/block:Text}
 
 			{block:Quote}
@@ -162,17 +162,18 @@
 			<div class="replies">{Replies}</div>
 			{/block:Answer}
 
-			<div class="meta">
+			<ul class="meta">
 				{block:Date}
-				<p>{block:IndexPage}<a href="{Permalink}" class="permalink">{/block:IndexPage}{Year}-{MonthNumber}-{DayOfMonth}{block:IndexPage}</a>{/block:IndexPage}</p>
+				<li>{block:IndexPage}<a href="{Permalink}" class="permalink">{/block:IndexPage}{Year}-{MonthNumber}-{DayOfMonth}{block:IndexPage}</a>{/block:IndexPage}</li>
 				{/block:Date}
-				{LikeButton color="white"}
-				{ReblogButton color="white"}
-			</div>
+				<li>{ReblogButton color="white"}</li>
+				<li>{LikeButton color="white"}</li>
+			</ul>
 
 		</article>
 		{/block:Posts}
-
+	</main>
+	<footer class="footer">
 		{block:PermalinkPagination}
 		<div class="pagination">
 			{block:PreviousPost}<a class="prev"href="{PreviousPost}">{lang:Previous post}</a>{/block:PreviousPost}
@@ -184,15 +185,17 @@
 		<div class="pagination">
 			{block:PreviousPage}<a class="prev" href="{PreviousPage}">{lang:Previous}</a>{/block:PreviousPage}
 
-			{block:JumpPagination length="5"}
-				{block:CurrentPage}<span class="current-page">{PageNumber}</span>{/block:CurrentPage}
-				{block:JumpPage}<a class="jump-page" href="{URL}">{PageNumber}</a>{/block:JumpPage}
-			{/block:JumpPagination}
+			<div class="page-number">
+				{block:JumpPagination length="5"}
+					{block:CurrentPage}<span class="current-page">{PageNumber}</span>{/block:CurrentPage}
+					{block:JumpPage}<a class="jump-page" href="{URL}">{PageNumber}</a>{/block:JumpPage}
+				{/block:JumpPagination}
+			</div>
 
 			{block:NextPage}<a class="next" href="{NextPage}">{lang:Next}</a>{/block:NextPage}
 		</div>
 		{/block:Pagination}
-	</main>
+	</footer>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="js/libs/jquery.unveil.min.js" inline></script>
 	<script src="js/all.js" inline></script>
