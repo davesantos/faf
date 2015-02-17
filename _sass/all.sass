@@ -43,14 +43,20 @@ iframe, embed
   display: block
   margin: 0 auto
 
+hr
+  border: 0
+  height: 0
+  border-top: 1px solid rgba(0, 0, 0, 0.1)
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+
+input
+  background-color: transparent
 //================================
 // Structure
 //================================
 
 .header
   margin-bottom: rhythm(3)
-
-#logo
   text-align: center
 
 .nav ul
@@ -67,8 +73,24 @@ ul.nav
   li
     display: inline-block
 .icon
-  height: 1.6em
-  width: 1.6em
+  height: rhythm(1)
+  width: rhythm(1)
+
+.footer
+  +full
+  padding: rhythm(2) 0
+//================================
+// SVG
+//================================
+
+#search-btn
+  svg
+    fill: white
+
+#twitter-btn
+  svg:hover
+    fill: #2ba9e1
+
 //================================
 // Posts
 //================================
@@ -87,18 +109,26 @@ ul.meta
   li
     display: inline-block
 
-.footer
-  +full
-  padding: rhythm(2) 0
+.read_more_container
+  margin: rhythm(1) 0
+
 //================================
 // Custom
 //================================
 
-#twitter-btn
-  svg:hover
-    fill: #2ba9e1
 
-// animation
+//================================
+// 404 (Conflicts with about pages)
+//================================
+//
+// #post-
+//   .entry-text
+//     text-align: center
+
+//================================
+ // Animation
+ //================================
+
 
 +keyframes(fadeIn)
   0%
