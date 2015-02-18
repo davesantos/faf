@@ -52,6 +52,8 @@ hr
 input
   background-color: transparent
   border-width: 2px
+  outline: none
+  border-style: solid
 
 //================================
 // Structure
@@ -74,9 +76,7 @@ ul.nav
   padding: 0
   li
     display: inline-block
-.icon
-  height: rhythm(1)
-  width: rhythm(1)
+
 
 .footer
   +full
@@ -84,6 +84,9 @@ ul.nav
 //================================
 // SVG
 //================================
+
+.icon
+  fill: white
 
 #search-btn
   svg
@@ -113,6 +116,7 @@ ul.meta
 
 .read_more_container
   margin: rhythm(1) 0
+  text-align: right
 
 //================================
 // Custom
