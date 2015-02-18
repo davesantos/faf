@@ -38,15 +38,23 @@ gulp.task('build', ['compass'], function () {
   var options = {
       compress: false
   };
+  gutil.log(gutil.colors.green('BUILD COMPLETE'));
+  gutil.beep();
   return gulp.src('tumblr.html')
-      .pipe(inlinesource(options))
-      .pipe(rename({
-          suffix: "-" + theTime,
-          extname: ".html"
-      }))
-      .pipe(gulp.dest(paths.dest));
-      gutil.log(gutil.colors.green('BUILD COMPLETE'));
-      gutil.beep();
+    .pipe(inlinesource(options))
+    .pipe(rename({
+        suffix: "-" + theTime,
+        extname: ".html"
+    }))
+    .pipe(gulp.dest(paths.dest));
+
+});
+
+gulp.task('beep', function(){
+
+  gutil.log(gutil.colors.green('BUILD COMPLETE'));
+  gutil.beep();
+
 });
 
 gulp.task('watch', function(){
