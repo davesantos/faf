@@ -1,4 +1,9 @@
-@import "base"
+@import base
+
+$total-columns  : 12
+$column-width   : 70px
+$gutter-width   : 20px
+$susy: (columns: $total-columns,gutters: $gutter-width / $column-width, column-width: $column-width, global-box-sizing: border-box )
 
 $base-font-size:18px
 $base-line-height:28px
@@ -9,6 +14,7 @@ $rhythm-unit: em
   +box-sizing(border-box)
 
 body
+  -webkit-font-smoothing: antialiased
   padding: 0 gutter()
   +container
 
@@ -28,13 +34,34 @@ img, video, object, embed
 
 img
   display: block
-  margin: auto 0
+  margin: 0 auto
   opacity: 0
   transition: opacity 250ms linear
+
+iframe, embed
+  display: block
+  margin: 0 auto
+
+hr
+  border: 0
+  height: 0
+  border-top: 1px solid rgba(0, 0, 0, 0.1)
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+
+input
+  background-color: transparent
+  border-width: 2px
+  outline: none
+  border-style: solid
 
 //================================
 // Structure
 //================================
+
+.header
+  margin-bottom: rhythm(3)
+  text-align: center
+
 .nav ul
   padding: 0
   margin: rhythm(1) 0
@@ -49,10 +76,66 @@ ul.nav
   li
     display: inline-block
 
-.pagination
-  padding: rhythm(1) 0
 
-// animation
+.footer
+  +full
+  padding: rhythm(2) 0
+//================================
+// SVG
+//================================
+
+.icon
+  fill: white
+
+#search-btn
+  svg
+    fill: white
+
+#twitter-btn
+  svg:hover
+    fill: #2ba9e1
+
+//================================
+// Posts
+//================================
+
+.post
+  margin: rhythm(2) auto
+  h2
+    text-align: center
+.caption
+  +span(8)
+  margin: 0 auto rhythm(2)
+
+ul.meta
+  list-style: none
+  text-align: center
+  li
+    display: inline-block
+
+.read_more_container
+  margin: rhythm(1) 0
+  text-align: center
+  a::after
+    content: " →"
+
+//================================
+// Custom
+//================================
+
+
+//================================
+// 404 (Conflicts with about pages)
+//================================
+//
+// #post-
+//   .entry-text
+//     text-align: center
+
+//================================
+ // Animation
+ //================================
+
 
 +keyframes(fadeIn)
   0%
@@ -60,21 +143,7 @@ ul.nav
   100%
     opacity: 1
 
-.m-scene .scene_element
-  +animation-duration(0.25s)
-  +animation-timing-function(ease-in)
-  +animation-fill-mode(both)
-
-.m-scene .scene_element--fadein
-  +animation-name(fadeIn)
-
-.m-scene .scene_element--slideoutup
-  +animation-name(slideOutUp)
-
-.m-scene .scene_element--slideindown
-  +animation-name(slideInDown)
-
-.m-scene.is-exiting .scene_element
-  +animation-direction(alternate-reverse)
-  padding: rhythm(1) 0 rhythm(2)
-
+@media only screen and (min-width: 768px)
+  @import 768
+@media only screen and (min-width: 1030px)
+@media only screen and (min-width: 1240px)

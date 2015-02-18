@@ -62,6 +62,6 @@ gulp.task('watch', function(){
   gulp.watch('./js/*.js', ['build']);
   gulp.watch('./tumblr.html', ['build']);
   // gulp.watch('./tumblr.html').on('change', livereload.changed);
-})
+});
 
 gulp.task('default', ['build', 'watch'])

@@ -1,0 +1,22 @@
+body
+  +adjust-font-size-to(20px)
+  +adjust-leading-to(1)
+
+%spacing
+  +squish(2)
+
+.caption, .entry-text
+  @extend %spacing
+
+h2
+  @extend %spacing
+
+//================================
+// Structure
+//================================
+.header
+  display: flex
+
+.audio-player
+  text-align: center
+  @extend %spacing
