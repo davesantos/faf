@@ -5,7 +5,6 @@ $column-width   : 70px
 $gutter-width   : 20px
 $susy: (columns: $total-columns,gutters: $gutter-width / $column-width, column-width: $column-width, global-box-sizing: border-box )
 
-
 $base-font-size:18px
 $base-line-height:28px
 $rhythm-unit: em
@@ -116,7 +115,9 @@ ul.meta
 
 .read_more_container
   margin: rhythm(1) 0
-  text-align: right
+  text-align: center
+  a::after
+    content: " →"
 
 //================================
 // Custom
