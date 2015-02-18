@@ -109,7 +109,7 @@
 			{/block:Link}
 
 			{block:Audio}
-			{block:AlbumArt}<img data-src="{AlbumArtURL}" alt="">{/block:AlbumArt}
+			{block:AlbumArt}<img class="lazyload" data-src="{AlbumArtURL}" alt="">{/block:AlbumArt}
 			<div class="audio-player">
 				{block:AudioEmbed}
 				    {AudioEmbed color="white"}
@@ -122,7 +122,7 @@
 			{block:Photo}
 			<figure class="{block:HighRes}high-res{/block:HighRes}{block:Caption} with-caption{/block:Caption}" data-photo-width="{PhotoWidth-HighRes}">
 				{LinkOpenTag}
-				<img data-src="{PhotoURL-500}" alt="{PhotoAlt}">
+				<img class="lazyload" data-src="{PhotoURL-500}" alt="{PhotoAlt}">
 				<noscript>
 					<img src="{PhotoURL-500}" alt="{PhotoAlt}">
 				</noscript>
@@ -134,7 +134,7 @@
 			{block:Photoset}
 			<figure{block:Caption} class="with-caption"{/block:Caption}>
 				{block:Photos}
-				<img draggable="false" data-src="{PhotoURL-500}" alt="{PhotoAlt}">
+				<img class="lazyload" data-src="{PhotoURL-500}" alt="{PhotoAlt}">
 				<noscript>
 					<img src="{PhotoURL-500}" alt="{PhotoAlt}">
 				</noscript>
@@ -146,7 +146,7 @@
 
 			{block:Panorama}
 			<figure{block:Caption} class="with-caption"{/block:Caption}>
-		    {LinkOpenTag}<img data-src="{PhotoURL-Panorama}" width="{PhotoWidth-Panorama}" height="{PhotoHeight-Panorama}" alt="{PhotoAlt}" />{LinkCloseTag}
+		    {LinkOpenTag}<img class="lazyload" data-src="{PhotoURL-Panorama}" width="{PhotoWidth-Panorama}" height="{PhotoHeight-Panorama}" alt="{PhotoAlt}" />{LinkCloseTag}
 		    {block:Caption}<figcaption class="caption">{Caption}</figcaption>{/block:Caption}
 			</figure>
 			{/block:Panorama}
@@ -227,7 +227,7 @@
 		{/block:Pagination}
 	</footer>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="js/libs/jquery.unveil.min.js" inline></script>
+	<script src="js/libs/lazysizes.min.js" inline></script>
 	<script src="js/all.js" inline></script>
 </body>
 </html>
