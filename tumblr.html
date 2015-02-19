@@ -88,7 +88,7 @@
 		{block:TagPage}<div class="result"><p>{lang:TagResultCount posts tagged Tag 3}</p></div>{/block:TagPage}
 
 		{block:Posts}
-		<article id="post-{PostID}" class="post {PostType} {TagsAsClasses}">
+		<article id="post-{PostID}" data-expand="-110" class="lazyload post {PostType} {TagsAsClasses}">
 			{block:Text}
 		    {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
 		    {block:Body}
@@ -227,7 +227,7 @@
 		{/block:Pagination}
 	</footer>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="js/libs/lazysizes.min.js" inline></script>
+	<script type="text/javascript" src="http://static.tumblr.com/cqczc5x/gu8njzy8z/lazysizes.min.js"></script>
 	<script src="js/all.js" inline></script>
 </body>
 </html>
