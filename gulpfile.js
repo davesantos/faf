@@ -10,7 +10,8 @@ var gulp = require('gulp'),
 var paths = {
   dest: 'build',
   sass: '_sass',
-  css: 'css'
+  css: 'css',
+  js: 'js/build'
 };
 
 function errorHandler(error) {
@@ -34,12 +35,10 @@ gulp.task('compass', function(){
     .pipe(gulp.dest('./css'))
 });
 
-gulp.task('build', ['compass'], function () {
+gulp.task('build', ['compass', 'beep'], function () {
   var options = {
       compress: false
   };
-  gutil.log(gutil.colors.green('BUILD COMPLETE'));
-  gutil.beep();
   return gulp.src('tumblr.html')
     .pipe(inlinesource(options))
     .pipe(rename({
@@ -64,4 +63,4 @@ gulp.task('watch', function(){
   // gulp.watch('./tumblr.html').on('change', livereload.changed);
 });
 
-gulp.task('default', ['build', 'watch'])
+gulp.task('default', ['clean', 'build', 'watch'])
