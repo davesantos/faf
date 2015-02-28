@@ -12,9 +12,6 @@
 	<link rel="canonical" href="{block:IndexPage}{BlogURL}{/block:IndexPage}{block:PermalinkPage}{Permalink}{/block:PermalinkPage}">
 	<link rel="alternate" type="application/rss+xml" href="{RSS}">
 	{block:Hidden}
- 		<!-- Custom theme options in the 'Hidden' block will not show when viewing the source code.
-			https://www.tumblr.com/docs/en/custom_themes#theme-options
-		 -->
 	<meta name="if:Instagram Icon" content="0">
 	<meta name="text:Instagram username" content="">
 
@@ -24,7 +21,6 @@
 	<meta name="select:Layout Width" content="layout-960" title="960">
 	<meta name="select:Layout Width" content="layout-1080" title="1080">
 	<meta name="select:Layout Width" content="layout-1322" title="1322">
-
  	{/block:Hidden}
 	<link rel="stylesheet" type="text/css" media="all" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
 	<link rel="stylesheet" type="text/css" media="all" href="css/all.css" inline>
@@ -88,7 +84,7 @@
 		{block:TagPage}<div class="result"><p>{lang:TagResultCount posts tagged Tag 3}</p></div>{/block:TagPage}
 
 		{block:Posts}
-		<article id="post-{PostID}" data-expand="-110" class="lazyload post {PostType} {TagsAsClasses}">
+		<article id="post-{PostID}" data-expand="110 "class="post {PostType} lazyload {TagsAsClasses}">
 			{block:Text}
 		    {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
 		    {block:Body}
@@ -122,9 +118,9 @@
 			{block:Photo}
 			<figure class="{block:HighRes}high-res{/block:HighRes}{block:Caption} with-caption{/block:Caption}" data-photo-width="{PhotoWidth-HighRes}">
 				{LinkOpenTag}
-				<img class="lazyload" data-src="{PhotoURL-500}" alt="{PhotoAlt}">
+				<img class="lazyload" data-src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
 				<noscript>
-					<img src="{PhotoURL-500}" alt="{PhotoAlt}">
+					<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
 				</noscript>
 				{LinkCloseTag}
 		    {block:Caption}<figcaption class="caption">{Caption}</figcaption>{/block:Caption}
@@ -134,9 +130,9 @@
 			{block:Photoset}
 			<figure{block:Caption} class="with-caption"{/block:Caption}>
 				{block:Photos}
-				<img class="lazyload" data-src="{PhotoURL-500}" alt="{PhotoAlt}">
+				<img class="lazyload" data-src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
 				<noscript>
-					<img src="{PhotoURL-500}" alt="{PhotoAlt}">
+					<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
 				</noscript>
 				{block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
 		    {/block:Photos}
@@ -174,15 +170,17 @@
 
 			{block:Answer}
 			<section class="question">
-				<img data-src="{AskerPortraitURL-48}">
-				<div class="asker">{Asker} asked:</div>
+				<div>
+					<img class="lazyload" data-src="{AskerPortraitURL-48}">
+					<span class="asker">{Asker} asked:</span>
+				</div>
 				<div class="asker-question">
 					{Question}
 				</div>
 			</section>
 			{block:Answerer}
 	        <section class="answerer">
-	         	<img data-src="{AnswererPortraitURL-48}">
+	         	<img class="lazyload" data-src="{AnswererPortraitURL-48}">
  				<p>{Answerer} answered:</p>
 	        	<div class="answerer-answer">
 	        		{Answer}
@@ -228,6 +226,7 @@
 	</footer>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://static.tumblr.com/cqczc5x/gu8njzy8z/lazysizes.min.js"></script>
+	<script type="text/javascript" src="http://static.tumblr.com/cqczc5x/Fiink1b6k/jquery.fitvids.js"></script>
 	<script src="js/all.js" inline></script>
 </body>
 </html>
