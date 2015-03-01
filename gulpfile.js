@@ -35,10 +35,12 @@ gulp.task('compass', function(){
     .pipe(gulp.dest('./css'))
 });
 
-gulp.task('build', ['compass', 'beep'], function () {
+gulp.task('build', ['compass'], function () {
   var options = {
       compress: false
   };
+  gutil.log(gutil.colors.green('BUILD COMPLETE'));
+  gutil.beep();
   return gulp.src('tumblr.html')
     .pipe(inlinesource(options))
     .pipe(rename({
@@ -63,4 +65,4 @@ gulp.task('watch', function(){
   // gulp.watch('./tumblr.html').on('change', livereload.changed);
 });
 
-gulp.task('default', ['clean', 'build', 'watch'])
+gulp.task('default', ['build', 'watch'])
