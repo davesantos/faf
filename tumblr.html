@@ -42,32 +42,29 @@
 		{block:ShowHeaderImage}<img data-src="{HeaderImage}">{/block:ShowHeaderImage}
 		{block:ShowAvatar}<img data-src="{PortraitURL-128}">{/block:ShowAvatar}
 		<nav class="nav" role="navigation">
+
 			<ul>
 				{block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
 								<li><a href="/archive">{lang:Archive}</a></li>
 								{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
 			</ul>
-		</nav>
 
-		{block:IfInstagramIcon}
-		<a id="instagram-btn" href="http://instagram.com/{text:Instagram username}">
-			<i class="fa fa-instagram"></i>
-		</a>
-		{/block:IfInstagramIcon}
-		{block:IfTwitterIcon}
-		<a id="twitter-btn" href="http://instagram.com/{text:Twitter username}">
-			<i class="fa fa-twitter"></i>
-		</a>
-		{/block:IfTwitterIcon}
+			{block:IfInstagramIcon}
+			<a class="fa fa-instagram" href="http://instagram.com/{text:Instagram username}"></a>
+			{/block:IfInstagramIcon}
+
+			{block:IfTwitterIcon}
+			<a class="fa fa-twitter" href="http://instagram.com/{text:Twitter username}"></a>
+			{/block:IfTwitterIcon}
+
+		</nav>
 
 		<div id="searchbar">
 			<form role="form" id="search" action="/search" method="get">
 				<input type="search" placeholder="{lang:Search}" name="q" value="{SearchQuery}">
-				<input id="search-button" type="submit" value="{lang:Search}">
-				<i class="fa fa-search"></i>
+				<input class="fa" id="search-button" type="submit" value="{lang:Search}">
 			</form>
 		</div>
-
 	</header>
 
 	<main role="main" class="content">
@@ -81,6 +78,15 @@
 
 		{block:Posts}
 		<article id="post-{PostID}" data-expand="110 "class="post {PostType} lazyload {TagsAsClasses}">
+
+			<ul class="meta">
+				{block:Date}
+				<li>{block:IndexPage}<a href="{Permalink}" class="permalink">{/block:IndexPage}{Year}/{MonthNumber}/{DayOfMonth}{block:IndexPage}</a>{/block:IndexPage}</li>
+				{/block:Date}
+				<li>{ReblogButton color="grey"}</li>
+				<li>{LikeButton color="grey"}</li>
+			</ul>
+
 			{block:Text}
 		    {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
 		    {block:Body}
@@ -186,13 +192,7 @@
 			<div class="replies">{Replies}</div>
 			{/block:Answer}
 
-			<ul class="meta">
-				{block:Date}
-				<li>{block:IndexPage}<a href="{Permalink}" class="permalink">{/block:IndexPage}{Year}-{MonthNumber}-{DayOfMonth}{block:IndexPage}</a>{/block:IndexPage}</li>
-				{/block:Date}
-				<li>{ReblogButton color="white"}</li>
-				<li>{LikeButton color="white"}</li>
-			</ul>
+
 
 		</article>
 		{/block:Posts}

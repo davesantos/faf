@@ -10,6 +10,8 @@ $base-line-height:28px
 $rhythm-unit: em
 +establish-baseline
 
+$color-grey: grey
+
 *
   +box-sizing(border-box)
 
@@ -75,6 +77,10 @@ ul.nav
   padding: 0
   li
     display: inline-block
+//Search
+
+#search-button:before
+  content: "&#xf002"
 
 .pagination
   +display-flex
@@ -84,20 +90,6 @@ ul.nav
 .footer
   +full
   padding: rhythm(2) 0
-//================================
-// SVG
-//================================
-
-.icon
-  fill: white
-
-#search-btn
-  svg
-    fill: white
-
-#twitter-btn
-  svg:hover
-    fill: #2ba9e1
 
 //================================
 // Posts
