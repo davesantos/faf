@@ -12,6 +12,7 @@
 	<link rel="canonical" href="{block:IndexPage}{BlogURL}{/block:IndexPage}{block:PermalinkPage}{Permalink}{/block:PermalinkPage}">
 	<link rel="alternate" type="application/rss+xml" href="{RSS}">
 	{block:Hidden}
+	<meta name="if:Search Bar" content="0">
 	<meta name="if:Instagram Icon" content="0">
 	<meta name="text:Instagram username" content="">
 
@@ -59,12 +60,15 @@
 
 		</nav>
 
+		{block:IfSearchBar}
 		<div id="searchbar">
 			<form role="form" id="search" action="/search" method="get">
 				<input type="search" placeholder="{lang:Search}" name="q" value="{SearchQuery}">
 				<input class="fa" id="search-button" type="submit" value="{lang:Search}">
 			</form>
 		</div>
+		{/block:IfSearchBar}
+
 	</header>
 
 	<main role="main" class="content">
@@ -81,7 +85,7 @@
 
 			<ul class="meta">
 				{block:Date}
-				<li>{block:IndexPage}<a href="{Permalink}" class="permalink">{/block:IndexPage}{Year}/{MonthNumber}/{DayOfMonth}{block:IndexPage}</a>{/block:IndexPage}</li>
+				<li>{block:IndexPage}<a href="{Permalink}" class="permalink">{/block:IndexPage}{Year}&#8211;{MonthNumber}&#8211;{DayOfMonth}{block:IndexPage}</a>{/block:IndexPage}</li>
 				{/block:Date}
 				<li>{ReblogButton color="grey"}</li>
 				<li>{LikeButton color="grey"}</li>
@@ -191,9 +195,6 @@
 			{/block:Answerer}
 			<div class="replies">{Replies}</div>
 			{/block:Answer}
-
-
-
 		</article>
 		{/block:Posts}
 	</main>
