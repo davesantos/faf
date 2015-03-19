@@ -17,14 +17,9 @@ $color-grey: grey
 
 body
   -webkit-font-smoothing: antialiased
-  padding: 0 gutter()
-  +container
 
 h1,h2,h3,h4
-  font-size: inherit
-  // +adjust-font-size-to(28px)
-h1
-  margin: 0
+  +adjust-font-size-to(18px)
 
 figure
   margin: 0
@@ -62,9 +57,25 @@ input
 //================================
 
 .header
-  margin: rhythm(1) 0
+  +align-items(center)
+  +background-size(cover)
+  +display-flex
+  +flex-direction(column)
+  +justify-content(center)
+  background-attachment: fixed
+  background-position: center
+  background-repeat: no-repeat
   overflow: hidden
-  text-align: center
+  padding: rhythm(1) gutter()
+  width: 100%
+
+.description
+  margin: rhythm(1)
+
+.content
+  +container
+  padding: 0 gutter()
+
 
 .nav ul
   padding: 0
