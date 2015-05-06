@@ -11,14 +11,6 @@
 	<link rel="shortcut icon" href="{Favicon}">
 	<link rel="canonical" href="{block:IndexPage}{BlogURL}{/block:IndexPage}{block:PermalinkPage}{Permalink}{/block:PermalinkPage}">
 	<link rel="alternate" type="application/rss+xml" href="{RSS}">
-	{block:Hidden}
-	<meta name="if:Search Bar" content="0">
-	<meta name="if:Instagram Icon" content="0">
-	<meta name="text:Instagram username" content="">
-
-	<meta name="if:Twitter Icon" content="0">
-	<meta name="text:Twitter username" content="">
- 	{/block:Hidden}
 	<link rel="stylesheet" type="text/css" media="all" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
  	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" media="all" href="css/all.css" inline>
@@ -30,7 +22,6 @@
 		input {border-color:{AccentColor};}
 		.icon {fill:{AccentColor};}
 		{CustomCSS}
-		{block:ShowHeaderImage}.header {background-image: url({HeaderImage});}{/block:ShowHeaderImage}
 	</style>
 </head>
 <body>
@@ -43,23 +34,6 @@
               {block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
     </ul>
 
-    {block:IfInstagramIcon}
-    <a class="fa fa-instagram" href="http://instagram.com/{text:Instagram username}"></a>
-    {/block:IfInstagramIcon}
-
-    {block:IfTwitterIcon}
-    <a class="fa fa-twitter" href="http://instagram.com/{text:Twitter username}"></a>
-    {/block:IfTwitterIcon}
-
-    {block:IfSearchBar}
-    <div id="searchbar">
-      <form role="form" id="search" action="/search" method="get">
-        <input type="search" placeholder="{lang:Search}" name="q" value="{SearchQuery}">
-        <input class="fa" id="search-button" type="submit" value="{lang:Search}">
-      </form>
-    </div>
-    {/block:IfSearchBar}
-
   </nav>
 
 	<header role="banner" class="header">
@@ -67,7 +41,6 @@
 		{block:ShowAvatar}<img data-src="{PortraitURL-128}">{/block:ShowAvatar}
 		{block:ShowTitle}<h1 id="logo"><a href="/">{Title}</a></h1>{/block:ShowTitle}
 		{block:ShowDescription}{block:Description}<div class="description">{Description}</div>{/block:Description}{/block:ShowDescription}
-    <input type="checkbox"/>
 
 	</header>
 

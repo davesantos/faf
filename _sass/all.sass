@@ -10,8 +10,6 @@ $base-line-height:28px
 $rhythm-unit: em
 +establish-baseline
 
-$color-grey: grey
-
 *
   +box-sizing(border-box)
 
@@ -185,12 +183,12 @@ ul.meta
  // Animation
  //================================
 
-// .lazyload
-//   opacity: 0
+.lazy-hidden
+  +opacity(0)
 
-// .lazyloaded
-//   opacity: 1
-//   transition: opacity 300ms linear
+.lazy-loaded
+  +single-transition(opacity)
+  +opacity(1)
 
 +keyframes(fadeIn)
   0%
