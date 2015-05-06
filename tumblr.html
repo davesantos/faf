@@ -6,13 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{Title}{block:PostSummary} &mdash; {PostSummary}{/block:PostSummary}</title>
 	{block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
-
 	<link rel="apple-touch-icon" href="{PortraitURL-128}">
 	<link rel="shortcut icon" href="{Favicon}">
 	<link rel="canonical" href="{block:IndexPage}{BlogURL}{/block:IndexPage}{block:PermalinkPage}{Permalink}{/block:PermalinkPage}">
 	<link rel="alternate" type="application/rss+xml" href="{RSS}">
 	<link rel="stylesheet" type="text/css" media="all" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
- 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" media="all" href="css/all.css" inline>
 	<style type="text/css">
 		/*Tumblr Global Appearance */
@@ -26,21 +24,16 @@
 </head>
 <body>
 
-  <nav class="nav" role="navigation">
-
-    <ul>
-      {block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
-              <li><a href="/archive">{lang:Archive}</a></li>
-              {block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
-    </ul>
-
-  </nav>
-
 	<header role="banner" class="header">
-
-		{block:ShowAvatar}<img data-src="{PortraitURL-128}">{/block:ShowAvatar}
+		{block:ShowAvatar}<img class="{AvatarShape}" data-src="{PortraitURL-128}" height="128px" width="128px" >{/block:ShowAvatar}
 		{block:ShowTitle}<h1 id="logo"><a href="/">{Title}</a></h1>{/block:ShowTitle}
 		{block:ShowDescription}{block:Description}<div class="description">{Description}</div>{/block:Description}{/block:ShowDescription}
+		<nav class="nav" role="navigation">
+		  <ul>
+		    {block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
+        <li><a href="/archive">{lang:Archive}</a></li>
+		  </ul>
+		</nav>
 
 	</header>
 
@@ -55,15 +48,6 @@
 
 		{block:Posts}
 		<article id="post-{PostID}" data-expand="110 "class="post {PostType} lazyload {TagsAsClasses}">
-
-			<ul class="meta">
-				{block:Date}
-				<li>{block:IndexPage}<a href="{Permalink}" class="permalink">{/block:IndexPage}{Year}&#8211;{MonthNumber}&#8211;{DayOfMonth}{block:IndexPage}</a>{/block:IndexPage}</li>
-				{/block:Date}
-				<li>{ReblogButton color="grey"}</li>
-				<li>{LikeButton color="grey"}</li>
-			</ul>
-
 			{block:Text}
 		    {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
 		    {block:Body}
@@ -84,7 +68,7 @@
 			{/block:Link}
 
 			{block:Audio}
-			{block:AlbumArt}<img class="lazyload" data-src="{AlbumArtURL}" alt="">{/block:AlbumArt}
+			{block:AlbumArt}<img data-src="{AlbumArtURL}" alt="">{/block:AlbumArt}
 			<div class="audio-player">
 				{block:AudioEmbed}
 				    {AudioEmbed color="white"}
@@ -95,9 +79,9 @@
 			{/block:Audio}
 
 			{block:Photo}
-			<figure class="{block:HighRes}high-res{/block:HighRes}{block:Caption} with-caption{/block:Caption}" data-photo-width="{PhotoWidth-HighRes}">
+			<figure class="{block:Caption} with-caption{/block:Caption}" data-photo-width="{PhotoWidth-HighRes}">
 				{LinkOpenTag}
-				<img class="lazyload" data-src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+				<img data-src="{PhotoURL-HighRes}" alt="{PhotoAlt}" height="">
 				<noscript>
 					<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
 				</noscript>
@@ -109,7 +93,7 @@
 			{block:Photoset}
 			<figure{block:Caption} class="with-caption"{/block:Caption}>
 				{block:Photos}
-				<img class="lazyload" data-src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+				<img data-src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
 				<noscript>
 					<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
 				</noscript>
@@ -121,7 +105,7 @@
 
 			{block:Panorama}
 			<figure{block:Caption} class="with-caption"{/block:Caption}>
-		    {LinkOpenTag}<img class="lazyload" data-src="{PhotoURL-Panorama}" width="{PhotoWidth-Panorama}" height="{PhotoHeight-Panorama}" alt="{PhotoAlt}" />{LinkCloseTag}
+		    {LinkOpenTag}<img data-src="{PhotoURL-Panorama}" width="{PhotoWidth-Panorama}" height="{PhotoHeight-Panorama}" alt="{PhotoAlt}" />{LinkCloseTag}
 		    {block:Caption}<figcaption class="caption">{Caption}</figcaption>{/block:Caption}
 			</figure>
 			{/block:Panorama}
@@ -150,7 +134,7 @@
 			{block:Answer}
 			<section class="question">
 				<div>
-					<img class="lazyload" data-src="{AskerPortraitURL-48}">
+					<img data-src="{AskerPortraitURL-48}">
 					<span class="asker">{Asker} asked:</span>
 				</div>
 				<div class="asker-question">
@@ -159,7 +143,7 @@
 			</section>
 			{block:Answerer}
 	        <section class="answerer">
-	         	<img class="lazyload" data-src="{AnswererPortraitURL-48}">
+	         	<img data-src="{AnswererPortraitURL-48}">
  				<p>{Answerer} answered:</p>
 	        	<div class="answerer-answer">
 	        		{Answer}
@@ -168,6 +152,13 @@
 			{/block:Answerer}
 			<div class="replies">{Replies}</div>
 			{/block:Answer}
+			<ul class="meta">
+				{block:Date}
+				<li>{block:IndexPage}<a href="{Permalink}" class="permalink">{/block:IndexPage}{Year}&#8211;{MonthNumber}&#8211;{DayOfMonth}{block:IndexPage}</a>{/block:IndexPage}</li>
+				{/block:Date}
+				<li>{ReblogButton color="grey"}</li>
+				<li>{LikeButton color="grey"}</li>
+			</ul>
 		</article>
 		{/block:Posts}
 	</main>
@@ -195,7 +186,7 @@
 		{/block:Pagination}
 	</footer>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="js/libs/jquery.lazyloadxt.extra.min.js" inline></script>
+	<script type="text/javascript" src="http://static.tumblr.com/cqczc5x/7Mdnnxtm1/jquery.lazyloadxt.extra.min.js"></script>
 	<script type="text/javascript" src="http://static.tumblr.com/cqczc5x/Fiink1b6k/jquery.fitvids.js"></script>
 	<script src="js/all.js" inline></script>
 </body>
