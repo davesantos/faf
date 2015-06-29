@@ -17,7 +17,6 @@ var paths = {
 function errorHandler(error) {
   console.error(String(error));
   this.emit('end');
-  gutil.beep();
 }
 
 gulp.task('clean', function(cb) {
