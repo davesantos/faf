@@ -40,7 +40,6 @@ gulp.task('build', ['compass'], function () {
       compress: false
   };
   gutil.log(gutil.colors.green('BUILD COMPLETE'));
-  gutil.beep();
   return gulp.src('tumblr.html')
     .pipe(inlinesource(options))
     .pipe(rename({
