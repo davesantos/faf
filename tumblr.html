@@ -25,7 +25,7 @@
 <body>
 
 	<header role="banner" class="header">
-		{block:ShowAvatar}<img class="{AvatarShape}" data-src="{PortraitURL-128}" height="128px" width="128px" >{/block:ShowAvatar}
+		{block:ShowAvatar}<a href="/"><img class="portrait {AvatarShape}" data-src="{PortraitURL-48}" height="48px" width="48px" ></a>{/block:ShowAvatar}
 		{block:ShowTitle}<h1 id="logo"><a href="/">{Title}</a></h1>{/block:ShowTitle}
 		{block:ShowDescription}{block:Description}<div class="description">{Description}</div>{/block:Description}{/block:ShowDescription}
 		<nav class="nav" role="navigation">
@@ -34,7 +34,6 @@
         <li><a href="/archive">{lang:Archive}</a></li>
 		  </ul>
 		</nav>
-
 	</header>
 
 	<main role="main" class="content">
@@ -47,7 +46,7 @@
 		{block:TagPage}<div class="result"><p>{lang:TagResultCount posts tagged Tag 3}</p></div>{/block:TagPage}
 
 		{block:Posts}
-		<article id="post-{PostID}" data-expand="110 "class="post {PostType} lazyload {TagsAsClasses}">
+		<article id="post-{PostID}" class="post {PostType} {TagsAsClasses}">
 			{block:Text}
 		    {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
 		    {block:Body}
@@ -86,7 +85,12 @@
 					<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
 				</noscript>
 				{LinkCloseTag}
-		    {block:Caption}<figcaption class="caption">{Caption}</figcaption>{/block:Caption}
+		    {block:Caption}
+		    <figcaption class="caption">
+		    	{Caption}
+			    {block:Source}<p class="source">{Source}</p>{/block:Source}
+		    </figcaption>
+		    {/block:Caption}
 			</figure>
 			{/block:Photo}
 
@@ -154,7 +158,7 @@
 			{/block:Answer}
 			<ul class="meta">
 				{block:Date}
-				<li>{block:IndexPage}<a href="{Permalink}" class="permalink">{/block:IndexPage}{Year}&#8211;{MonthNumber}&#8211;{DayOfMonth}{block:IndexPage}</a>{/block:IndexPage}</li>
+				<li>{block:IndexPage}<a href="{Permalink}" class="permalink">{/block:IndexPage}{TimeAgo}{block:IndexPage}</a>{/block:IndexPage}</li>
 				{/block:Date}
 				<li>{ReblogButton color="grey"}</li>
 				<li>{LikeButton color="grey"}</li>
@@ -163,19 +167,12 @@
 		{/block:Posts}
 	</main>
 	<footer class="footer">
-		{block:PermalinkPagination}
-		<div class="pagination">
-			{block:PreviousPost}<a class="prev"href="{PreviousPost}">{lang:Previous post}</a>{/block:PreviousPost}
-			{block:NextPost}<a class="next" href="{NextPost}">{lang:Next post}</a>{/block:NextPost}
-		</div>
-		{/block:PermalinkPagination}
-
 		{block:Pagination}
 		<div class="pagination">
 			{block:PreviousPage}<a class="prev" href="{PreviousPage}">{lang:Previous}</a>{/block:PreviousPage}
 
 			<div class="page-number">
-				{block:JumpPagination length="5"}
+				{block:JumpPagination length="3"}
 					{block:CurrentPage}<span class="current-page">{PageNumber}</span>{/block:CurrentPage}
 					{block:JumpPage}<a class="jump-page" href="{URL}">{PageNumber}</a>{/block:JumpPage}
 				{/block:JumpPagination}
