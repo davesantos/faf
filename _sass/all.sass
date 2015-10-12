@@ -10,13 +10,21 @@ $base-line-height:28px
 $rhythm-unit: em
 +establish-baseline
 
++font-face("Maria Pro", font-files("maria-webfont-webfont.eot", "maria-webfont-webfont.svg", "maria-webfont-webfont.ttf", "maria-webfont-webfont.woff"))
+
 
 
 *
   +box-sizing(border-box)
 
+.wf-active body, .wf-inactive body
+  opacity: 1
+
+
 body
   -webkit-font-smoothing: antialiased
+  font-family: 'Maria Pro', sans-serif
+  opacity: 0
 
 h1,h2,h3,h4
   +adjust-font-size-to(18px)
@@ -82,19 +90,22 @@ input
   +container
   padding: 0 gutter()
 
-.nav ul
+ul
   padding: 0
-  margin: rhythm(1) 0
+  list-style: none
+
+.nav ul
+  margin-top: rhythm(1)
+  margin-bottom: rhythm(1)
   li
     display: inline-block
     margin-right: gutter()
     &:last-child
       margin-right: none
-ul.nav
-  list-style: none
-  padding: 0
-  li
-    display: inline-block
+
+
+
+
 //Search
 
 #search-button:before
