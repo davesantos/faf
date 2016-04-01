@@ -1,8 +1,4 @@
 
-body
-  +adjust-font-size-to(20px)
-  +adjust-leading-to(1)
-
 %spacing
   +squish(1)
 
@@ -25,13 +21,11 @@ h2
   text-align: center
   @extend %spacing
 
-.meta
-  +adjust-font-size-to(16px)
-
 //================================
 // Post
 //================================
-$post-width: span(8)
 
 .post
-  width: $post-width
+  width: span(8)
+  margin-left: auto
+  margin-right: auto

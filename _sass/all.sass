@@ -1,33 +1,34 @@
-@import base
+//================================
+// Base
+//================================
 
-$total-columns  : 12
-$column-width   : 70px
-$gutter-width   : 20px
-$susy: (columns: $total-columns,gutters: $gutter-width / $column-width, column-width: $column-width, global-box-sizing: border-box )
+@import 'bower_components/susy/sass/susy'
+@import 'base/bourbon/bourbon'
+@import 'base/variables'
 
-$base-font-size:18px
-$base-line-height:28px
-$rhythm-unit: em
-+establish-baseline
+//================================
+// Modules
+//================================
 
-+font-face("Maria Pro", font-files("maria-webfont-webfont.eot", "maria-webfont-webfont.svg", "maria-webfont-webfont.ttf", "maria-webfont-webfont.woff"))
-
-
+@import 'modules/mixins'
++font-face("Maria Pro", "http://davesantos.com/assets/fonts/maria-webfont-webfont", $file-formats: eot woff2 woff);
 
 *
-  +box-sizing(border-box)
+  box-sizing: border-box
 
 .wf-active body, .wf-inactive body
   opacity: 1
 
-
 body
+  +rootsize
+  +container
+  +font-smoothing
   -webkit-font-smoothing: antialiased
   font-family: 'Maria Pro', sans-serif
   opacity: 0
 
 h1,h2,h3,h4
-  +adjust-font-size-to(18px)
+  font-size: 18px
   font-family: 'Archivo Black', sans-serif
 
 figure
@@ -42,7 +43,7 @@ img, video, object, embed
 
 img
   display: block
-  margin: 0 auto rhythm(1)
+  margin: 0 auto spacing(1)
 
 iframe, embed
   display: block
@@ -67,15 +68,15 @@ input
 
 .header
   +align-items(center)
-  +background-size(cover)
-  +display-flex
+  background-size: cover
+  +display(flex)
   +flex-direction(column)
   +justify-content(center)
   background-attachment: fixed
   background-position: center
   background-repeat: no-repeat
   overflow: hidden
-  padding: rhythm(1) gutter()
+  padding: spacing(1) gutter()
   width: 100%
 
 .avatar
@@ -84,7 +85,7 @@ input
   margin: 0
 
 .description
-  margin: rhythm(1)
+  margin: spacing(1)
 
 .content
   +container
@@ -95,8 +96,8 @@ ul
   list-style: none
 
 .nav ul
-  margin-top: rhythm(1)
-  margin-bottom: rhythm(1)
+  margin-top: spacing(1)
+  margin-bottom: spacing(1)
   li
     display: inline-block
     margin-right: gutter()
@@ -112,36 +113,36 @@ ul
   content: "&#xf002"
 
 .pagination
-  +display-flex
+  +display(flex)
   +justify-content(center)
   .page-number
     margin: 0 gutter()
 
 .footer
   +full
-  padding: rhythm(2) 0
+  padding: spacing(2) 0
 
 //================================
 // Posts
 //================================
 
 .post
-  margin: rhythm(1) auto rhythm(3)
+  margin: spacing(1) auto spacing(3)
   overflow: hidden
   h2
     text-align: center
 
   ul.meta
-    +single-transition(opacity)
-    +display-flex
+    +transition(opacity 1s ease-out)
+    +display(flex)
     +justify-content(center)
     +align-items(center)
-    +opacity(0.25)
+    opacity: 0.25
     list-style: none
     text-align: center
-    margin-top: rhythm(1)
+    margin-top: spacing(1)
     &:hover
-      +opacity(1)
+      opacity: 1
     li
       display: inline-block
       margin-right: gutter()
@@ -158,7 +159,7 @@ ul
 
 
 .read_more_container
-  margin: rhythm(1) 0
+  margin: spacing(1) 0
   text-align: center
   a::after
     content: " →"
@@ -191,11 +192,11 @@ ul
  //================================
 
 .lazy-hidden
-  +opacity(0)
+  opacity: 0
 
 .lazy-loaded
-  +single-transition(opacity)
-  +opacity(1)
+  +transition(opacity 1s ease-out)
+  opacity: 1
 
 +keyframes(fadeIn)
   0%
@@ -203,7 +204,8 @@ ul
   100%
     opacity: 1
 
-@media only screen and (min-width: 768px)
++breakpoint(tablet)
   @import 768
-@media only screen and (min-width: 1030px)
-@media only screen and (min-width: 1240px)
+
+// @media only screen and (min-width: 1030px)
+// @media only screen and (min-width: 1240px)
