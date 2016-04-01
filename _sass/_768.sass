@@ -1,9 +1,6 @@
-body
-  +adjust-font-size-to(20px)
-  +adjust-leading-to(1)
 
 %spacing
-  +squish(2)
+  +squish(1)
 
 .caption, .entry-text
   @extend %spacing
@@ -15,8 +12,20 @@ h2
 // Structure
 //================================
 .header
+  .description
+    @extend %spacing
+
 
 
 .audio-player
   text-align: center
   @extend %spacing
+
+//================================
+// Post
+//================================
+
+.post
+  width: span(8)
+  margin-left: auto
+  margin-right: auto

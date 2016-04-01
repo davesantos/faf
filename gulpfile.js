@@ -1,18 +1,19 @@
-var theTime = Math.round(new Date().getTime() / 1000);
-var gulp = require('gulp'),
+var
+  theTime = Math.round(new Date().getTime() / 1000),
+  gulp = require('gulp'),
   changed = require('gulp-changed'),
-  compass = require('gulp-compass'),
   del = require('del'),
   gutil = require('gulp-util'),
   inlinesource = require('gulp-inline-source'),
-  rename = require('gulp-rename');
-
-var paths = {
-  dest: 'build',
-  sass: '_sass',
-  css: 'css',
-  js: 'js/build'
-};
+  removeEmptyLines = require('gulp-remove-empty-lines'),
+  rename = require('gulp-rename'),
+  sass = require('gulp-sass'),
+  paths = {
+    dest: 'build',
+    sass: '_sass',
+    css: 'css',
+    js: 'js/build'
+  };
 
 function errorHandler(error) {
   console.error(String(error));
@@ -23,24 +24,25 @@ gulp.task('clean', function(cb) {
   del(['build'], cb);
 });
 
-gulp.task('compass', function(){
-  return gulp.src(paths.sass + '/*.{sass,scss}')
-    .pipe(compass({
-      config_file: './config.rb',
-      css: paths.css,
-      sass: paths.sass, //Must not have .
-      require: ['susy'] }))
-    .on('error', errorHandler)
-    .pipe(gulp.dest('./css'))
+
+gulp.task('sass', function(){
+  gulp.src(paths.sass + '/**/*.{sass,scss}')
+    .pipe(sass({outputStyle: 'compressed'}).on('error', errorHandler))
+    .pipe(gulp.dest(paths.css))
 });
 
-gulp.task('build', ['compass'], function () {
+
+gulp.task('build', ['sass'], function () {
+
   var options = {
       compress: false
   };
-  gutil.log(gutil.colors.green('BUILD COMPLETE'));
+
+  gutil.log(gutil.colors.green('Build : ' + theTime));
+
   return gulp.src('tumblr.html')
     .pipe(inlinesource(options))
+    .pipe(removeEmptyLines())
     .pipe(rename({
         suffix: "-" + theTime,
         extname: ".html"
@@ -50,7 +52,6 @@ gulp.task('build', ['compass'], function () {
 });
 
 gulp.task('beep', function(){
-
   gutil.log(gutil.colors.green('BUILD COMPLETE'));
   gutil.beep();
 
@@ -60,7 +61,6 @@ gulp.task('watch', function(){
   gulp.watch( paths.sass + '/*', ['build']);
   gulp.watch('./js/*.js', ['build']);
   gulp.watch('./tumblr.html', ['build']);
-  // gulp.watch('./tumblr.html').on('change', livereload.changed);
 });
 
 gulp.task('default', ['build', 'watch'])

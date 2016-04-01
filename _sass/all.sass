@@ -1,29 +1,40 @@
-@import base
+//================================
+// Base
+//================================
 
-$total-columns  : 12
-$column-width   : 90px
-$gutter-width   : 20px
-$susy: (columns: $total-columns,gutters: $gutter-width / $column-width, column-width: $column-width, global-box-sizing: border-box )
+@import 'bower_components/susy/sass/susy'
+@import 'base/bourbon/bourbon'
+@import 'base/variables'
 
-$base-font-size:18px
-$base-line-height:28px
-$rhythm-unit: em
-+establish-baseline
+//================================
+// Modules
+//================================
 
-$color-grey: grey
+@import 'modules/mixins'
++font-face("Maria Pro", "http://davesantos.com/assets/fonts/maria-webfont-webfont", $file-formats: eot woff2 woff);
 
 *
-  +box-sizing(border-box)
+  box-sizing: border-box
+
+.wf-active body, .wf-inactive body
+  opacity: 1
 
 body
+<<<<<<< HEAD
   -webkit-font-smoothing: antialiased
   padding: 0 gutter()
+=======
+  +rootsize
+  +container
+  +font-smoothing
+  -webkit-font-smoothing: antialiased
+  font-family: 'Maria Pro', sans-serif
+  opacity: 0
+>>>>>>> blank
 
 h1,h2,h3,h4
-  font-size: inherit
-  // +adjust-font-size-to(28px)
-h1
-  margin: 0
+  font-size: 18px
+  font-family: 'Archivo Black', sans-serif
 
 figure
   margin: 0
@@ -37,7 +48,7 @@ img, video, object, embed
 
 img
   display: block
-  margin: 0 auto
+  margin: 0 auto spacing(1)
 
 iframe, embed
   display: block
@@ -61,57 +72,99 @@ input
 //================================
 
 .header
-  margin: rhythm(1) 0
+  +align-items(center)
+  background-size: cover
+  +display(flex)
+  +flex-direction(column)
+  +justify-content(center)
+  background-attachment: fixed
+  background-position: center
+  background-repeat: no-repeat
   overflow: hidden
-  text-align: center
+  padding: spacing(1) gutter()
+  width: 100%
+
+.avatar
+  -webkit-clip-path: circle(50% at 50% 50%)
+  clip-path: circle(50% at 50% 50%)
+  margin: 0
+
+.description
+  margin: spacing(1)
+
+.content
+  +container
+  padding: 0 gutter()
+
+ul
+  padding: 0
+  list-style: none
 
 .nav ul
-  padding: 0
-  margin: rhythm(1) 0
+  margin-top: spacing(1)
+  margin-bottom: spacing(1)
   li
     display: inline-block
     margin-right: gutter()
     &:last-child
       margin-right: none
-ul.nav
-  list-style: none
-  padding: 0
-  li
-    display: inline-block
+
+
+
+
 //Search
 
 #search-button:before
   content: "&#xf002"
 
 .pagination
-  +display-flex
-  +justify-content(space-between)
-
+  +display(flex)
+  +justify-content(center)
+  .page-number
+    margin: 0 gutter()
 
 .footer
   +full
-  padding: rhythm(2) 0
+  padding: spacing(2) 0
 
 //================================
 // Posts
 //================================
 
 .post
-  margin: rhythm(2) auto
+  margin: spacing(1) auto spacing(3)
+  overflow: hidden
   h2
     text-align: center
-.caption
-  +span(8)
-  margin: 0 auto rhythm(2)
 
-ul.meta
-  list-style: none
+  ul.meta
+    +transition(opacity 1s ease-out)
+    +display(flex)
+    +justify-content(center)
+    +align-items(center)
+    opacity: 0.25
+    list-style: none
+    text-align: center
+    margin-top: spacing(1)
+    &:hover
+      opacity: 1
+    li
+      display: inline-block
+      margin-right: gutter()
+      &:last-child
+        margin: 0
+
+
+  &.photo
+    .source
+      text-indent: -9999px
+
+.caption, .entry-text
   text-align: center
-  li
-    display: inline-block
+
 
 .read_more_container
-  margin: rhythm(1) 0
+  margin: spacing(1) 0
   text-align: center
   a::after
     content: " →"
@@ -143,12 +196,12 @@ ul.meta
  // Animation
  //================================
 
-.lazyload
+.lazy-hidden
   opacity: 0
 
-.lazyloaded
+.lazy-loaded
+  +transition(opacity 1s ease-out)
   opacity: 1
-  transition: opacity 300ms linear
 
 +keyframes(fadeIn)
   0%
@@ -156,7 +209,8 @@ ul.meta
   100%
     opacity: 1
 
-@media only screen and (min-width: 768px)
++breakpoint(tablet)
   @import 768
-@media only screen and (min-width: 1030px)
-@media only screen and (min-width: 1240px)
+
+// @media only screen and (min-width: 1030px)
+// @media only screen and (min-width: 1240px)
