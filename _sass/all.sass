@@ -99,11 +99,11 @@ ul
 
 //Lazyload
 
-.lazyload
+.lazyload, .lazyloading
   opacity: 0
 .lazyloaded
   opacity: 1
-  +transition(opacity 250ms linear)
+  +transition(opacity map-get($animations, speed) linear)
 
 
 
