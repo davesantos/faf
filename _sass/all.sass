@@ -16,12 +16,10 @@
   box-sizing: border-box
 
 body
-  // +container
   +font-smoothing
   +rootsize
   font-size: modular-scale(1)
-  padding-left: gutter()
-  padding-right: gutter()
+
 
 figure
   margin: 0
@@ -60,8 +58,14 @@ input
 //================================
 // Structure
 //================================
+%container
+  +container
+  padding-left: gutter()
+  padding-right: gutter()
 
 .header
+  @extend %container
+
   // +align-items(center)
   // background-size: cover
   // +display(flex)
@@ -83,6 +87,7 @@ input
   margin: spacing(1)
 
 .content
+  @extend %container
 
 ul
   padding: 0
@@ -119,6 +124,8 @@ ul
     margin: 0 gutter()
 
 .footer
+  @extend %container
+
 
 //================================
 // Posts
