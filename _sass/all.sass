@@ -11,25 +11,18 @@
 //================================
 
 @import 'modules/mixins'
-+font-face("Maria Pro", "http://davesantos.com/assets/fonts/maria-webfont-webfont", $file-formats: eot woff2 woff);
 
 *
   box-sizing: border-box
-
-.wf-active body, .wf-inactive body
-  opacity: 1
 
 body
   +rootsize
   +container
   +font-smoothing
-  -webkit-font-smoothing: antialiased
-  font-family: 'Maria Pro', sans-serif
-  opacity: 0
+  font-family: sans-serif
 
 h1,h2,h3,h4
   font-size: 18px
-  font-family: 'Archivo Black', sans-serif
 
 figure
   margin: 0

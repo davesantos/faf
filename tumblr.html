@@ -13,6 +13,10 @@
   <link rel="stylesheet" type="text/css" media="all" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
   <link href='http://fonts.googleapis.com/css?family=Archivo+Black' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" media="all" href="css/all.css" inline>
+
+  <script src=" http://static.tumblr.com/cqczc5x/vWXo6hpt5/lazysizes.min.js" async ></script>
+
+
   <style type="text/css">
     /*Tumblr Global Appearance */
     body {background:{BackgroundColor};color:{AccentColor};}
@@ -79,17 +83,10 @@
       {/block:Audio}
 
       {block:Photo}
-      <figure class="{block:Caption} with-caption{/block:Caption}" data-photo-width="{PhotoWidth-HighRes}">
-        {LinkOpenTag}
-        <img src="{PhotoURL-500}" data-src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="lazyload">
-        {LinkCloseTag}
-        {block:Caption}
-        <figcaption class="caption">
-          {Caption}
-          {block:Source}<p class="source">{Source}</p>{/block:Source}
-        </figcaption>
-        {/block:Caption}
-      </figure>
+        <figure class="{block:HighRes}high-res{/block:HighRes}{block:Caption} with-caption{/block:Caption}" data-photo-width="{PhotoWidth-HighRes}">
+          {LinkOpenTag}<img class="lazyload" src="{PhotoURL-500}" data-src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="{PhotoWidth-HighRes}" height="{PhotoHeight-HighRes}">{LinkCloseTag}
+          {block:Caption}<figcaption class="caption">{Caption}</figcaption>{/block:Caption}
+        </figure>
       {/block:Photo}
 
       {block:Photoset}
@@ -184,7 +181,6 @@
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://static.tumblr.com/cqczc5x/Fiink1b6k/jquery.fitvids.js"></script>
-  <script src="bower_components/lazysizes/lazysizes.js" inline></script>
   <script src="js/all.js" inline></script>
 </body>
 </html>
