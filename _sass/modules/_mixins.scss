@@ -10,7 +10,6 @@
   list-style: none;
 }
 
-
 //==============================
 // Functions
 //==============================
@@ -22,7 +21,6 @@
 @function rand($min, $max) {
   @return random($max - $min) + $min;
 }
-
 
 //================================
 // Mixins
