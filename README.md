@@ -1,7 +1,8 @@
 #FAF
 
-Fast as fuck
-Free as fuck
+Fast as Fuck
+Free as Fuck
+Fast and Free
 
 ##Dependencies
 
