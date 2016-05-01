@@ -81,10 +81,7 @@
       {block:Photo}
       <figure class="{block:Caption} with-caption{/block:Caption}" data-photo-width="{PhotoWidth-HighRes}">
         {LinkOpenTag}
-        <img data-src="{PhotoURL-HighRes}" alt="{PhotoAlt}" height="">
-        <noscript>
-          <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
-        </noscript>
+        <img src="{PhotoURL-500}" data-src="{PhotoURL-HighRes}" alt="{PhotoAlt}" class="lazyload">
         {LinkCloseTag}
         {block:Caption}
         <figcaption class="caption">
@@ -186,8 +183,8 @@
   </footer>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script type="text/javascript" src="http://static.tumblr.com/cqczc5x/7Mdnnxtm1/jquery.lazyloadxt.extra.min.js"></script>
   <script type="text/javascript" src="http://static.tumblr.com/cqczc5x/Fiink1b6k/jquery.fitvids.js"></script>
+  <script src="bower_components/lazysizes/lazysizes.js" inline></script>
   <script src="js/all.js" inline></script>
 </body>
 </html>
