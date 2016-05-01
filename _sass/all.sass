@@ -12,17 +12,12 @@
 
 @import 'modules/mixins'
 
-*
-  box-sizing: border-box
-
 body
-  +rootsize
   +container
+  +rootsize
   +font-smoothing
-  font-family: sans-serif
-
-h1,h2,h3,h4
-  font-size: 18px
+  font-size: modular-scale(1)
+  padding: spacing(2) gutter()
 
 figure
   margin: 0
@@ -35,6 +30,8 @@ img, video, object, embed
   height: auto !important
 
 img
+  -ms-interpolation-mode: bicubic
+  vertical-align: middle
   display: block
   margin: 0 auto spacing(1)
 
@@ -182,23 +179,6 @@ ul
 // #post-
 //   .entry-text
 //     text-align: center
-
-//================================
- // Animation
- //================================
-
-.lazy-hidden
-  opacity: 0
-
-.lazy-loaded
-  +transition(opacity 1s ease-out)
-  opacity: 1
-
-+keyframes(fadeIn)
-  0%
-    opacity: 0
-  100%
-    opacity: 1
 
 // +breakpoint(tablet)
 //   @import breakpoints/768
