@@ -39,7 +39,6 @@ gulp.task('build', ['sass'], function () {
   };
 
   gutil.log(gutil.colors.green('Build : ' + theTime));
-  gutil.beep();
 
   return gulp.src('tumblr.html')
     .pipe(inlinesource(options))
