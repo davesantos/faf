@@ -12,12 +12,20 @@
 
 @import 'modules/mixins'
 
+
+*
+  box-sizing: border-box
+
 body
-  +container
   +rootsize
   +font-smoothing
   font-size: modular-scale(1)
-  padding: spacing(2) gutter()
+
+%gutter
+  +container
+  padding-left: gutter()
+  padding-right: gutter()
+
 
 figure
   margin: 0
@@ -66,8 +74,10 @@ input
   background-position: center
   background-repeat: no-repeat
   overflow: hidden
-  padding: spacing(1) gutter()
+  padding-top: spacing(1)
+  padding-bottom: spacing(1)
   width: 100%
+  @extend %gutter
 
 .avatar
   -webkit-clip-path: circle(50% at 50% 50%)
@@ -78,8 +88,7 @@ input
   margin: spacing(1)
 
 .content
-  +container
-  padding: 0 gutter()
+  @extend %gutter
 
 ul
   padding: 0
@@ -116,8 +125,7 @@ ul
     margin: 0 gutter()
 
 .footer
-  +full
-  padding: spacing(2) 0
+  @extend %gutter
 
 //================================
 // Posts
