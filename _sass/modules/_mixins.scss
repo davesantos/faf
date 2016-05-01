@@ -1,19 +1,28 @@
 //================================
-// Import Variables
+// Placeholders
 //================================
 
-$sizes:   map-values($rootsizes);
-$points:  map-values($breakpoints);
-$leadings : map-values($lineheights);
-$breakpoints_total: length($breakpoints);
+//https://web-design-weekly.com/2013/05/12/handy-sass-mixins/
 
-//================================
+%strip-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+//==============================
 // Functions
-//================================
+//==============================
 
-@function spacing($multiple, $leading: 1.6em ) {
+@function spacing($multiple, $leading: $modular-scale-base ) {
   @return $leading * $multiple;
 }
+
+@function rand($min, $max) {
+  @return random($max - $min) + $min;
+}
+
 
 //================================
 // Mixins
@@ -58,13 +67,13 @@ $breakpoints_total: length($breakpoints);
 }
 
 @mixin rootsize {
-  font-size: rem(nth($sizes, 1));
-  line-height: rem(nth($leadings, 1));
+  font-size: nth($sizes, 1);
+  line-height: nth($leadings, 1);
   // Loop through breakpoints.
   @for $i from 2 through $breakpoints_total {
     @media screen and (min-width: nth($points, $i) ) {
-      font-size: rem(nth($sizes, $i));
-      line-height: rem(nth($leadings, $i));
+      font-size: nth($sizes, $i);
+      line-height: nth($leadings, $i);
     }
   }
 }
