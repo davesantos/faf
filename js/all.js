@@ -18,5 +18,10 @@ $(function(){
 
   vp.fitVids();
   ap.fitVids();
+
+  $(window).on('resize', function(){
+    lazySizes.autoSizer.checkElems();
+  });
 });
+
 

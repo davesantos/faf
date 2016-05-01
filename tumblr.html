@@ -19,7 +19,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" type="text/css" media="all">
   <link rel="stylesheet" type="text/css" media="all" href="css/all.css" inline>
-
+  <script src=></script>
   <script src=" http://static.tumblr.com/cqczc5x/vWXo6hpt5/lazysizes.min.js" async ></script>
 
   <style type="text/css">
@@ -88,7 +88,18 @@
 
       {block:Photo}
         <figure class="{block:HighRes}high-res{/block:HighRes}{block:Caption} with-caption{/block:Caption}" data-photo-width="{PhotoWidth-HighRes}">
-          {LinkOpenTag}<img class="lazyload" src="{PhotoURL-500}" data-src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="{PhotoWidth-HighRes}" height="{PhotoHeight-HighRes}">{LinkCloseTag}
+
+          <img src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+            alt="{PhotoAlt}"
+            data-src="{PhotoURL-500}"
+            data-sizes="auto"
+            class="lazyload"
+            width="{PhotoWidth-HighRes}"
+            data-srcset="{PhotoURL-250} 250w, {PhotoURL-500} 500w, {PhotoURL-HighRes} 1280w"
+          >
+          {block:Hidden}
+            {LinkOpenTag}<img class="lazyload" src="{PhotoURL-500}" data-src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="{PhotoWidth-HighRes}" height="{PhotoHeight-HighRes}">{LinkCloseTag}
+          {/block:Hidden}
           {block:Caption}<figcaption class="caption">{Caption}</figcaption>{/block:Caption}
         </figure>
       {/block:Photo}
