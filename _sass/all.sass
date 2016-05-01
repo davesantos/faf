@@ -12,23 +12,20 @@
 
 @import 'modules/mixins'
 
-
 *
   box-sizing: border-box
 
 body
-  +rootsize
+  // +container
   +font-smoothing
+  +rootsize
   font-size: modular-scale(1)
-
-%gutter
-  +container
   padding-left: gutter()
   padding-right: gutter()
 
-
 figure
   margin: 0
+  padding: 0
 
 a
   text-decoration: none
@@ -65,19 +62,17 @@ input
 //================================
 
 .header
-  +align-items(center)
-  background-size: cover
-  +display(flex)
-  +flex-direction(column)
-  +justify-content(center)
-  background-attachment: fixed
-  background-position: center
-  background-repeat: no-repeat
+  // +align-items(center)
+  // background-size: cover
+  // +display(flex)
+  // +flex-direction(column)
+  // +justify-content(center)
+  // background-attachment: fixed
+  // background-position: center
+  // background-repeat: no-repeat
   overflow: hidden
   padding-top: spacing(1)
   padding-bottom: spacing(1)
-  width: 100%
-  @extend %gutter
 
 .avatar
   -webkit-clip-path: circle(50% at 50% 50%)
@@ -88,7 +83,6 @@ input
   margin: spacing(1)
 
 .content
-  @extend %gutter
 
 ul
   padding: 0
@@ -109,7 +103,7 @@ ul
   opacity: 0
 .lazyloaded
   opacity: 1
-  +transition(opacity map-get($animations, speed) linear)
+  // +transition(opacity map-get($animations, speed) linear)
 
 
 
@@ -125,7 +119,6 @@ ul
     margin: 0 gutter()
 
 .footer
-  @extend %gutter
 
 //================================
 // Posts
