@@ -3,12 +3,14 @@ var
   gulp = require('gulp'),
   changed = require('gulp-changed'),
   del = require('del'),
+  inject = require('gulp-inject-string'),
   gutil = require('gulp-util'),
   inlinesource = require('gulp-inline-source'),
   removeEmptyLines = require('gulp-remove-empty-lines'),
   rename = require('gulp-rename'),
   sass = require('gulp-sass'),
   paths = {
+    theme: 'tumblr.html',
     dest: 'build',
     sass: '_sass',
     css: 'css',
@@ -24,13 +26,11 @@ gulp.task('clean', function(cb) {
   del(['build'], cb);
 });
 
-
 gulp.task('sass', function(){
   gulp.src(paths.sass + '/**/*.{sass,scss}')
     .pipe(sass({outputStyle: 'compressed'}).on('error', errorHandler))
     .pipe(gulp.dest(paths.css))
 });
-
 
 gulp.task('build', ['sass'], function () {
 
@@ -39,21 +39,17 @@ gulp.task('build', ['sass'], function () {
   };
 
   gutil.log(gutil.colors.green('Build : ' + theTime));
+  gutil.beep();
 
   return gulp.src('tumblr.html')
     .pipe(inlinesource(options))
     .pipe(removeEmptyLines())
+    .pipe(inject.after('</title>', '\n<!-- Build: ' + Date() + ' -->\n'))
     .pipe(rename({
         suffix: "-" + theTime,
         extname: ".html"
     }))
     .pipe(gulp.dest(paths.dest));
-
-});
-
-gulp.task('beep', function(){
-  gutil.log(gutil.colors.green('BUILD COMPLETE'));
-  gutil.beep();
 
 });
 
