@@ -11,7 +11,7 @@ var
   sass = require('gulp-sass'),
   paths = {
     theme: 'tumblr.html',
-    dest: 'build',
+    dest: 'dist',
     sass: '_sass',
     css: 'css',
     js: 'js/build'
@@ -23,7 +23,7 @@ function errorHandler(error) {
 }
 
 gulp.task('clean', function(cb) {
-  del(['build'], cb);
+  del([paths.dest], cb);
 });
 
 gulp.task('sass', function(){
