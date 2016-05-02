@@ -165,39 +165,13 @@ ul
   a::after
     content: " →"
 
-//================================
-// Custom
-//================================
-.align_right
-  .caption, .entry-text
-    text-align: right
-
-.align_center
-  .caption, .entry-text
-    text-align: center
-
-.align_left
-  .caption, .entry-text
-    text-align: left
-
-//================================
-// 404 (Conflicts with about pages)
-//================================
-//
-// #post-
-//   .entry-text
-//     text-align: center
-
 +breakpoint(tablet)
-
-  %squish
+  .post
     +squish(1)
-
+  .caption,.entry-text
+    +squish(2)
   .audio-player
     text-align: center
-
-  .post
-    @extend %squish
 
 +breakpoint(large)
 
