@@ -58,4 +58,4 @@ gulp.task('watch', function(){
   gulp.watch('./tumblr.html', ['build']);
 });
 
-gulp.task('default', ['build', 'watch'])
+gulp.task('default', ['build', 'clean', 'watch'])
