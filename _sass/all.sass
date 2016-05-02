@@ -188,8 +188,21 @@ ul
 //   .entry-text
 //     text-align: center
 
-// +breakpoint(tablet)
-//   @import breakpoints/768
++breakpoint(tablet)
+
+  %squish
+    +squish(1)
+
+  .audio-player
+    text-align: center
+
+  .post
+    @extend %squish
+
++breakpoint(large)
+
+  .post
+    +full
 
 // @media only screen and (min-width: 1030px)
 // @media only screen and (min-width: 1240px)
