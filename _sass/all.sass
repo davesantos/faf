@@ -63,8 +63,15 @@ input
   padding-left: gutter()
   padding-right: gutter()
 
-.header
+.inner
   @extend %container
+
+//Header
+.header
+  overflow: hidden
+  padding-top: spacing(1)
+  padding-bottom: spacing(1)
+
 
   // +align-items(center)
   // background-size: cover
@@ -74,9 +81,10 @@ input
   // background-attachment: fixed
   // background-position: center
   // background-repeat: no-repeat
-  overflow: hidden
-  padding-top: spacing(1)
-  padding-bottom: spacing(1)
+
+.content
+  @extend %container
+
 
 .avatar
   -webkit-clip-path: circle(50% at 50% 50%)
@@ -86,8 +94,7 @@ input
 .description
   margin: spacing(1)
 
-.content
-  @extend %container
+
 
 ul
   padding: 0
@@ -153,7 +160,6 @@ ul
       margin-right: gutter()
       &:last-child
         margin: 0
-
 
   &.photo
     .source

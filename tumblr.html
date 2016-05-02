@@ -33,17 +33,21 @@
 
   <header role="banner" class="header">
 
-    <div class="inner">
-      {block:ShowAvatar}<a href="{BlogURL}"><img class="avatar lazyload" data-src="{PortraitURL-128}"></a>{/block:ShowAvatar}
-      {block:ShowTitle}<h1 id="logo"><a href="{BlogURL}">{Title}</a></h1>{/block:ShowTitle}
-      {block:ShowDescription}{block:Description}<div class="description">{Description}</div>{/block:Description}{/block:ShowDescription}
+    <section class="inner">
+
+      <div class="title-wrap">
+        {block:ShowAvatar}<a href="{BlogURL}"><img class="avatar lazyload" data-src="{PortraitURL-128}"></a>{/block:ShowAvatar}
+        {block:ShowTitle}<h1 id="logo"><a href="{BlogURL}">{Title}</a></h1>{/block:ShowTitle}
+        {block:ShowDescription}{block:Description}<div class="description">{Description}</div>{/block:Description}{/block:ShowDescription}
+      </div>
+
       <nav class="nav" role="navigation">
         <ul>
           {block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
           <li><a href="/archive">{lang:Archive}</a></li>
         </ul>
       </nav>
-    </div>
+    </section>
 
   </header>
 
