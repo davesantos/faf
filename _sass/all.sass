@@ -165,16 +165,19 @@ ul
   a::after
     content: " →"
 
+
++breakpoint(mobile)
+  .caption,.entry-text
+    +squish(1)
 +breakpoint(tablet)
   .post
     +squish(1)
-  .caption,.entry-text
-    +squish(2)
   .audio-player
     text-align: center
 
 +breakpoint(large)
-
+  .caption,.entry-text
+    +squish(2)
   .post
     +full
 
