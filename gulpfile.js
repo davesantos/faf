@@ -53,7 +53,7 @@ gulp.task('build', ['sass'], function () {
 });
 
 gulp.task('watch', function(){
-  gulp.watch( paths.sass + '/*', ['build']);
+  gulp.watch( paths.sass + '/**/*.{sass,scss}', ['build']);
   gulp.watch('./js/*.js', ['build']);
   gulp.watch('./tumblr.html', ['build']);
 });
