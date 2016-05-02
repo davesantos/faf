@@ -2,7 +2,7 @@
 .save
 .sass-cache
 node_modules
-deploy
+dist
 build
 css
 bower_components
