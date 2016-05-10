@@ -20,7 +20,6 @@ body
   +rootsize
   font-size: modular-scale(1)
 
-
 figure
   margin: 0
   padding: 0
@@ -68,22 +67,18 @@ input
 
 //Header
 .header
-  overflow: hidden
-  padding-top: spacing(1)
-  padding-bottom: spacing(1)
-
-
   // +align-items(center)
-  // background-size: cover
   // +display(flex)
   // +flex-direction(column)
   // +justify-content(center)
-  // background-attachment: fixed
-  // background-position: center
-  // background-repeat: no-repeat
+  background-attachment: fixed
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+  overflow: hidden
+  padding-bottom: spacing(1)
+  padding-top: spacing(1)
 
-.content
-  @extend %container
 
 
 .avatar
@@ -94,26 +89,30 @@ input
 .description
   margin: spacing(1)
 
+.nav
+  +full
+  ul
+    padding: 0
+    list-style: none
+    margin-top: spacing(1)
+    margin-bottom: spacing(1)
+    li
+      display: inline-block
+      margin-right: gutter()
+      &:last-child
+        margin-right: none
 
+.content
+  @extend %container
 
-ul
-  padding: 0
-  list-style: none
-
-.nav ul
-  margin-top: spacing(1)
+.caption,.entry-text
   margin-bottom: spacing(1)
-  li
-    display: inline-block
-    margin-right: gutter()
-    &:last-child
-      margin-right: none
-
 //Lazyload
 
 .lazyload, .lazyloading
   opacity: 0
-.lazyloaded
+
+.no-js .lazyload, .lazyloaded
   opacity: 1
   // +transition(opacity map-get($animations, speed) linear)
 
@@ -131,6 +130,8 @@ ul
     margin: 0 gutter()
 
 .footer
+  padding-top: spacing(1)
+  padding-bottom: spacing(1)
   @extend %container
 
 

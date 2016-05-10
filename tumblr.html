@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -27,6 +27,9 @@
     {CustomCSS}
   </style>
 
+  <script>
+      var element=document.documentElement,isMobile=/Android|BB10|BlackBerry|IEMobile|iPhone|iPad|iPod|Kindle|Playbook|Silk|SymbianOS|webOS|(Opera Mini)|(Opera Mobi)|(Windows Phone)/i.test(navigator.userAgent);"classList"in document.createElement("_")&&(element.classList.add("is-js"),element.classList.remove("no-js"),isMobile||(element.classList.add("is-desktop"),element.classList.remove("is-mobile")));
+  </script>
   <script src=" http://static.tumblr.com/cqczc5x/vWXo6hpt5/lazysizes.min.js" async ></script>
 </head>
 <body>
@@ -36,7 +39,7 @@
     <section class="inner">
 
       <div class="title-wrap">
-        {block:ShowAvatar}<a href="{BlogURL}"><img class="avatar lazyload" data-src="{PortraitURL-128}"></a>{/block:ShowAvatar}
+        {block:ShowAvatar}<a href="{BlogURL}"><img draggable="false" class="avatar lazyload" data-src="{PortraitURL-128}" height="128px" width="128px"></a>{/block:ShowAvatar}
         {block:ShowTitle}<h1 id="logo"><a href="{BlogURL}">{Title}</a></h1>{/block:ShowTitle}
         {block:ShowDescription}{block:Description}<div class="description">{Description}</div>{/block:Description}{/block:ShowDescription}
       </div>
@@ -50,7 +53,6 @@
     </section>
 
   </header>
-
   <main role="main" class="content">
     {block:SearchPage}
     <div class="result">
@@ -95,7 +97,7 @@
       {block:Photo}
         <figure class="{block:HighRes}high-res{/block:HighRes}{block:Caption} with-caption{/block:Caption}" data-photo-width="{PhotoWidth-HighRes}">
           {LinkOpenTag}
-          <img src="{PhotoURL-100}" alt="{PhotoAlt}"
+          <img src="{PhotoURL-250}" alt="{PhotoAlt}"
             data-src="{PhotoURL-250}"
             data-sizes="auto"
             class="lazyload"
@@ -110,7 +112,7 @@
       {block:Photoset}
       <figure{block:Caption} class="with-caption"{/block:Caption}>
         {block:Photos}
-        <img src="{PhotoURL-100}" alt="{PhotoAlt}"
+        <img src="{PhotoURL-250}" alt="{PhotoAlt}"
           data-src="{PhotoURL-250}"
           data-sizes="auto"
           class="lazyload"
